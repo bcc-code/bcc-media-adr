@@ -28,7 +28,12 @@ developers in BCC.
 ======
 
 All software development projects (unless otherwise decided for documented technical or legal reasons) should be 
-released under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html) license.
+released under the [MIT](https://opensource.org/licenses/MIT) license.
+
+The graphical profile (included but not limited to logos, placeholders, decorative image elements) should
+never be included in the open license.
+
+TODO: Split licensing as suggested under maybe: [https://opensource.stackexchange.com/a/5884](https://opensource.stackexchange.com/a/5884)
 
 The decision whether to accept a proposed modification is with the main developer of the project and 
 must be based on technical merit and alignment with the technical and business goals of the organization.
