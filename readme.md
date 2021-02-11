@@ -1,3 +1,5 @@
+![BCC.Media Logo](https://storage.googleapis.com/bcc-media-public/bcc-media-logo-150.png)
+
 # Architectural Decision Record (ADR)
 
 This is a collection of decisions that have been made for BCC.Media Foundation
