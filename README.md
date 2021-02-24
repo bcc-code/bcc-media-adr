@@ -1,3 +1,5 @@
+# Initial page
+
 ![BCC.Media Logo](https://storage.googleapis.com/bcc-media-public/bcc-media-logo-150.png)
 
 ## Architectural Decision Record \(ADR\)
