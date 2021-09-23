@@ -85,9 +85,27 @@ The rest of the relevant additional data is automatically collected by the SDK.
 
 ### Page/Screen IDs
 
-TODO: Maybe we can gather a list here. I would like to be consistent between platforms
-as far as possible, so we can for example compare how many people go to search on
-mobile vs app easily.
+TODO
+
+This are the pages from the app:
+
+* AboutPage
+* AudiencePage
+* CalendarPage
+* ExplorePage
+* InfoPage
+* LiveStreamPage
+* LoginPage
+* NativePlayer
+* ProfileEditPage
+* ProfilePage
+* ProgramPage
+* QueuePage
+* SearchPage
+* SeriesPage
+* SettingsListPage
+* SupportPage
+
 
 
 ## Section click (sectionClicked)
