@@ -77,7 +77,7 @@ Use the `/screen` endpoint in app. Docs: https://docs.rudderstack.com/rudderstac
 
 The rest of the relevant additional data is automatically collected by the SDK.
 
-| Data         | Name        | Commnets                                       |
+| Data         | Name        | Comments                                       |
 |--------------|-------------|------------------------------------------------|
 | Name         | name        | A page identifier. See comments and list below |
 | Element Type | elementType | episode, series, ...                           |
@@ -90,7 +90,7 @@ as far as possible, so we can for example compare how many people go to search o
 mobile vs app easily.
 
 
-## Section click (sectionClick)
+## Section click (sectionClicked)
 
 *When*: On every tap/click on a section element. This is on all sections, regardless
 of where they may appear
@@ -104,9 +104,9 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data         | Name        | Commnets                                      |
+| Data         | Name        | Comments                                      |
 |--------------|-------------|-----------------------------------------------|
-| Event ID     | event       | Hardcoded: `sectionClick`                     |
+| Event ID     | event       | Hardcoded: `sectionClicked`                   |
 | section ID   | sectionId   | ID of the section that the element belongs to |
 | section Name | sectionName | For easier identification in tools            |
 | Element Type | elementType | episode, series, ...                          |
@@ -114,7 +114,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | See All      | seeAll      | true if the tapped element was "See All"      |
 | Page Name    | pageName    | same ID as for page/screen tracking           |
 
-## Liveboard click (liveboardClick)
+## Liveboard click (liveboardClicked)
 
 *When*: User clicks an element in the liveboard. This is for all screens where
 liveboard appears (or may appear in the future).
@@ -128,16 +128,16 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data            | Name           | Commnets                                           |
+| Data            | Name           | Comments                                           |
 |-----------------|----------------|----------------------------------------------------|
-| Event ID        | event          | Hardcoded: `liveboardClick`                        |
+| Event ID        | event          | Hardcoded: `liveboardClicked`                      |
 | Module ID       | moduleId       | from Firestore                                     |
 | Module Type     | moduleType     | from Firestore                                     |
 | Module Position | modulePosition | top module == 1 (easier logic for non-tech people) |
 | Event ID        | eventId        |                                                    |
 | Event Name      | eventName      | Optional                                           |
 
-## Audio Only (audioOnlyClick)
+## Audio Only (videoToggle)
 
 *When*: User clicks/taps the audio only button
 
@@ -149,13 +149,13 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data        | Name             | Commnets                    |
-|-------------|------------------|-----------------------------|
-| Event ID    | event            | Hardcoded: `audioOnlyClick` |
-| Video state | videoStateTarget | Video state *after* tap     |
+| Data        | Name             | Comments                     |
+|-------------|------------------|------------------------------|
+| Event ID    | event            | Hardcoded: `videoToggle`     |
+| Video state | videoStateTarget | Video state *after* tap      |
 
 
-## Calendar click (calendarClick)
+## Calendar click (calendarClicked)
 
 *When*: When user taps/clicks an element in the calendar
 
@@ -167,15 +167,15 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data          | Name         | Commnets                                      |
+| Data          | Name         | Comments                                      |
 |---------------|--------------|-----------------------------------------------|
-| Event ID      | event        | Hardcoded: `calendarClick`                    |
+| Event ID      | event        | Hardcoded: `calendarClicked`                  |
 | Page Name     | pageName     | same ID as for page/screen tracking           |
 | Calendar view | calendarView | `week` or `month`                             |
 | Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
-| Element Id    | elementId    | If tap leads to an episode, record episode [id](id) |
+| Element Id    | elementId    | If tap leads to an episode, record episode id |
 
-## Play Clicked (playClick)
+## Play Clicked (playClicked)
 
 *When*: When user taps/clicks "play"
 
@@ -187,14 +187,14 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data          | Name         | Commnets                                      |
+| Data          | Name         | Comments                                      |
 |---------------|--------------|-----------------------------------------------|
-| Event ID      | event        | Hardcoded: `playClick`                        |
+| Event ID      | event        | Hardcoded: `playClicked`                      |
 | Page Name     | pageName     | same ID as for page/screen tracking           |
 | Element Type  | elementType  | episode, series, ...                          |
 | Element ID    | elementId    | series, episode ID                            |
 
-## Search (search)
+## Search (searchPerformed)
 
 *When*: When user performs a search
 
@@ -206,15 +206,15 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data           | Name              | Commnets                     |
+| Data           | Name              | Comments                     |
 |----------------|-------------------|------------------------------|
-| Event ID       | event             | Hardcoded: `search`          |
+| Event ID       | event             | Hardcoded: `searchPerformed` |
 | Search Term    | searchText        | exact search term            |
 | Search Latency | searchLatency     | how long did the search take |
 | Result Count   | searchResultCount |                              |
 
 
-## Search Result click (searchClick)
+## Search Result click (searchResultClicked)
 
 *When*: When user clicks/taps on a search result
 
@@ -226,15 +226,15 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data            | Name                 | Commnets                     |
-|-----------------|----------------------|------------------------------|
-| Event ID        | event                | Hardcoded: `searchClick`     |
-| Search Term     | searchText           | exact search term            |
-| Result Position | searchResultPosition | how long did the search take |
-| Element Type    | elementType          | episode, series, ...         |
-| Element ID      | elementId            | series, episode ID           |
+| Data            | Name                 | Comments                         |
+|-----------------|----------------------|----------------------------------|
+| Event ID        | event                | Hardcoded: `searchResultClicked` |
+| Search Term     | searchText           | exact search term                |
+| Result Position | searchResultPosition | how long did the search take     |
+| Element Type    | elementType          | episode, series, ...             |
+| Element ID      | elementId            | series, episode ID               |
 
-## Language Change (languageChange)
+## Language Change (languageChanged)
 
 *When*: When user changes the language in any context
 
@@ -248,21 +248,19 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data          | Name               | Commnets                            |
+| Data          | Name               | Comments                            |
 |---------------|--------------------|-------------------------------------|
-| Event ID      | event              | Hardcoded: `languageChange`         |
+| Event ID      | event              | Hardcoded: `languageChanged`        |
 | Page Name     | pageName           | same ID as for page/screen tracking |
 | From Language | languageFrom       |                                     |
 | To Language   | languageTo         |                                     |
 | Where         | languageChangeType | audio, app, subs                    |
 
-## Share (share)
+## Share (contentShared)
 
-*When*: When user changes the language in any context
+*When*: When user shares content via the share menu
 
 *Reason*: Spotting issues, Usage info
-
-*Notes*: This is not high priority, if hard to get, can be omitted
 
 ### API
 
@@ -270,9 +268,9 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data          | Name               | Commnets                            |
+| Data          | Name               | Comments                            |
 |---------------|--------------------|-------------------------------------|
-| Event ID      | event              | Hardcoded: `share`                  |
+| Event ID      | event              | Hardcoded: `contentShared`          |
 | Page Name     | pageName           | same ID as for page/screen tracking |
 | Element Type  | elementType        | episode, series, ...                |
 | Element ID    | elementId          | series, episode ID                  |
@@ -320,50 +318,50 @@ Use the `/track` API as described here: https://docs.rudderstack.com/rudderstack
 
 This events contain no extra data 
 
-| Event                 | Event ID            |
-|-----------------------|---------------------|
-| Playback started      | playbackStarted     |
-| Playback paused       | playbackPaused      |
-| Playback interrupted  | playbackInterrupted |
-| Playback buffer start | playbackBufferStart |
+| Event                 | Event ID                 |
+|-----------------------|--------------------------|
+| Playback started      | playbackStarted          |
+| Playback paused       | playbackPaused           |
+| Playback interrupted  | playbackInterrupted      |
+| Playback buffer start | playbackStartedBuffering |
 
-## Buffering end (playbackBufferEnd)
-
-### Data
-
-| Data                 | Name       | Commnets            |
-|----------------------|------------|---------------------|
-| Event ID             | eventID    | `playbackBufferEnd` |
-| Time spent Buffering | bufferTime |                     |
-
-## Seek Start (playbackSeekStart)
+## Buffering end (playbackEndedBuffering)
 
 ### Data
 
-| Data          | Name         | Commnets            |
-|---------------|--------------|---------------------|
-| Event ID      | eventID      | `playbackSeekStart` |
-| Is Playing    | isPlaying    |                     |
-| Seek position | seekPosition | offset in seconds   |
+| Data                 | Name       | Comments                 |
+|----------------------|------------|--------------------------|
+| Event ID             | eventID    | `playbackEndedBuffering` |
+| Time spent Buffering | bufferTime |                          |
 
-## Seek End (playbackSeekStart)
+## Seek Start (playbackSeekStarted)
 
 ### Data
 
-| Data          | Name         | Commnets                             |
+| Data          | Name         | Comments              |
+|---------------|--------------|-----------------------|
+| Event ID      | eventID      | `playbackSeekStarted` |
+| Is Playing    | isPlaying    |                       |
+| Seek position | seekPosition | offset in seconds     |
+
+## Seek End (playbackSeekEnded)
+
+### Data
+
+| Data          | Name         | Comments                             |
 |---------------|--------------|--------------------------------------|
-| Event ID      | eventID      | `playbackSeekStart`                  |
+| Event ID      | eventID      | `playbackSeekEnded`                  |
 | Seek position | seekPosition | offset in seconds                    |
 | Seek time     | seekTime     | in seconds, including buffering time |
 
-## Playback end (playbackEnd)
+## Playback end (playbackEnded)
 
 ### Data
 
-| Data            | Name          | Commnets      |
-|-----------------|---------------|---------------|
-| Event ID        | eventID       | `playbackEnd` |
-| Next episode id | nextEpisodeId | if relevant   |
+| Data            | Name          | Comments        |
+|-----------------|---------------|-----------------|
+| Event ID        | eventID       | `playbackEnded` |
+| Next episode id | nextEpisodeId | if relevant     |
 
 ## Playback playing (playbackPlaying)
 
