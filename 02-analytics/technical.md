@@ -43,8 +43,12 @@ the process or generate analytics IDs if they do not posses the secret.
 
 ## Identify
 
-*When*: On login + When you request a new refresh token from Auth0
-*Reason*: Being able to connect anonymous events to a user
+*When*: On login
+In addition this call should be made when user starts the application and is already
+logged in, but has not sent an identify! This is so the existing users do not have to 
+login again.
+*Reason*: Being able to connect events based on the anonymousId (1 per device) to
+the user that is logged in.
 
 ### API
 
@@ -62,8 +66,8 @@ data will be automatically injected by RudderStack, and delivered to the needed 
 
 ## Screen/Page View
 
-*When*: On every page/screen the user opens. If relevant also on popups if they
-can be considered a separate screen.
+*When*: On every page/screen the user opens. If relevant also on popups and tabs
+if they can be considered a separate screen (for example Participate tab on live).
 
 *Reason*: It will allow us to see how used the various pages are and estimate how
 much time users spend on various screens.
@@ -85,9 +89,7 @@ The rest of the relevant additional data is automatically collected by the SDK.
 
 ### Page/Screen IDs
 
-TODO
-
-This are the pages from the app:
+This are the currently used screens from the app:
 
 * AboutPage
 * AudiencePage
@@ -106,9 +108,7 @@ This are the pages from the app:
 * SettingsListPage
 * SupportPage
 
-
-
-## Section click (sectionClicked)
+## Section click (section_clicked)
 
 *When*: On every tap/click on a section element. This is on all sections, regardless
 of where they may appear
@@ -132,7 +132,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | See All      | seeAll      | true if the tapped element was "See All"      |
 | Page Name    | pageName    | same ID as for page/screen tracking           |
 
-## Liveboard click (liveboardClicked)
+## Liveboard click (liveboard_clicked)
 
 *When*: User clicks an element in the liveboard. This is for all screens where
 liveboard appears (or may appear in the future).
@@ -173,7 +173,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Video state | videoStateTarget | Video state *after* tap      |
 
 
-## Calendar click (calendarClicked)
+## Calendar click (calendar_clicked)
 
 *When*: When user taps/clicks an element in the calendar
 
@@ -193,26 +193,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
 | Element Id    | elementId    | If tap leads to an episode, record episode id |
 
-## Play Clicked (playClicked)
-
-*When*: When user taps/clicks "play"
-
-*Reason*: Spotting issues
-
-### API
-
-Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
-
-### Data
-
-| Data          | Name         | Comments                                      |
-|---------------|--------------|-----------------------------------------------|
-| Event ID      | event        | Hardcoded: `playClicked`                      |
-| Page Name     | pageName     | same ID as for page/screen tracking           |
-| Element Type  | elementType  | episode, series, ...                          |
-| Element ID    | elementId    | series, episode ID                            |
-
-## Search (searchPerformed)
+## Search (search_performed)
 
 *When*: When user performs a search
 
@@ -232,7 +213,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Result Count   | searchResultCount |                              |
 
 
-## Search Result click (searchResultClicked)
+## Search Result click (search_result_clicked)
 
 *When*: When user clicks/taps on a search result
 
@@ -252,7 +233,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Element Type    | elementType          | episode, series, ...             |
 | Element ID      | elementId            | series, episode ID               |
 
-## Language Change (languageChanged)
+## Language Change (language_changed)
 
 *When*: When user changes the language in any context
 
@@ -274,7 +255,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | To Language   | languageTo         |                                     |
 | Where         | languageChangeType | audio, app, subs                    |
 
-## Share (contentShared)
+## Share (content_shared)
 
 *When*: When user shares content via the share menu
 
@@ -336,14 +317,14 @@ Use the `/track` API as described here: https://docs.rudderstack.com/rudderstack
 
 This events contain no extra data 
 
-| Event                 | Event ID                 |
-|-----------------------|--------------------------|
-| Playback started      | playbackStarted          |
-| Playback paused       | playbackPaused           |
-| Playback interrupted  | playbackInterrupted      |
-| Playback buffer start | playbackStartedBuffering |
+| Event                 | Event ID                   |
+|-----------------------|----------------------------|
+| Playback started      | playback_started           |
+| Playback paused       | playback_paused            |
+| Playback interrupted  | playback_interrupted       |
+| Playback buffer start | playback_buffering_started |
 
-## Buffering end (playbackEndedBuffering)
+## Buffering end (playback_buffering_ended)
 
 ### Data
 
@@ -352,7 +333,7 @@ This events contain no extra data
 | Event ID             | eventID    | `playbackEndedBuffering` |
 | Time spent Buffering | bufferTime |                          |
 
-## Seek Start (playbackSeekStarted)
+## Seek Start (playback_seeking_started)
 
 ### Data
 
@@ -362,7 +343,7 @@ This events contain no extra data
 | Is Playing    | isPlaying    |                       |
 | Seek position | seekPosition | offset in seconds     |
 
-## Seek End (playbackSeekEnded)
+## Seek End (playback_seeking_ended)
 
 ### Data
 
@@ -372,7 +353,7 @@ This events contain no extra data
 | Seek position | seekPosition | offset in seconds                    |
 | Seek time     | seekTime     | in seconds, including buffering time |
 
-## Playback end (playbackEnded)
+## Playback end (playback_ended)
 
 ### Data
 
@@ -381,7 +362,7 @@ This events contain no extra data
 | Event ID        | eventID       | `playbackEnded` |
 | Next episode id | nextEpisodeId | if relevant     |
 
-## Playback playing (playbackPlaying)
+## Playback playing (playback_playing)
 
 This should be sent every 60 seconds as long as the player is playing.
 
