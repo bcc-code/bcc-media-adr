@@ -7,6 +7,19 @@ is offline. The data should be cached as far as possible and sent to the server
 when the device is back online. If caching more data becomes impossible, the oldest
 cached data should be deleted. The deletion is discussed further later in the doc.
 
+### Cached events
+
+We should be able to cache at least 3 weeks of events (Africa use case),
+If we assume that the user is watching 1 hours every day on a device like that,
+that would mean `21 * 60 = 1260` "playing" events in a week. Adding 20% for other
+events we end up at roughly `1500` events per week.
+
+Thus we should be able to cache ca 5000 events.
+
+If data still needs to be deleted from cache, it should be deleted a day at a time,
+starting with the oldest. In exchange, to help us track this events, an event, with
+the name `analytics_cache_deleted` should be cached.
+
 ## Common data
 
 The data specified below should be sent with every event, unless otherwise noted. 
@@ -36,10 +49,11 @@ platform and not on the other.
 
 ### Person analytics ID
 
-You can get this ID by sending a token to TODO. The returned value is an hash
-of the userID + a secret. This ensures that we are able to link all data to one
-user from different systems, while preventing anyone from being able to reverse
-the process or generate analytics IDs if they do not posses the secret.
+You can get this ID by sending an authenticated request to `https://API_DOMAIN/api/analitycsid`.
+The returned value is an hash of the userID + a secret. This ensures that we are
+able to link all data to one user from different systems, while preventing anyone
+from being able to reverse the process or generate analytics IDs if they do not
+posses the secret.
 
 ## Identify
 
