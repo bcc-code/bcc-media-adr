@@ -1,8 +1,8 @@
-# 2. IaC
-Date: 08-02-2021 09:27:51
+# 3. IaC
+Date: 28-09-2021
 
 ## Status
-Proposed
+Accepted
 
 ## Context
 
@@ -32,7 +32,7 @@ The configuration is written in a special Terraform language.
 Cons:
 
 * Not a _real_ language
-* Refactoring often results in recreating resources
+* Somewhat steep learning curve for certain aspects
 
 ### Pulumi
 
@@ -48,16 +48,20 @@ Cons:
 
 * Somewhat verbose at times
 * Sometimes the API does not react as expected
+* After using it for a project, it seems very hard to maintain
 
 ## Decision
 
-We adopt Pulumi for defining IaC.
+We adopt Terraform for defining IaC.
 
-The Pulumi configuration should by default reside in `./infra` and have at least
-a sample stack showing off the available variables.
+We adopt a private repository with the terraform code, and for the moment do not distribute
+terraform code as open source, due to high risk of accidental disclosure of sensitive
+material.
 
-By default the Pulumi code should be written in the language the project is written
-in, using Go as fallback.
+All sensitive data in the repository must be encrypted with git-crypt.
+
+In case sensitive data is committed in clear text, it needs to be removed from the 
+repository and rotated/invalidated as fast as possible.
 
 ## Consequences
 
