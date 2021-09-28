@@ -33,19 +33,19 @@ platform and not on the other.
 
 ### Common data table
 
-| Data                | Name           | Comments                                      |
-|---------------------|----------------|-----------------------------------------------|
-| OS                  | os             | Automatically managed by SDKs                 |
-| OS Language         | locale         | Automatically managed by SDKs                 |
-| Network Info        | networkInfo    | Automatically managed by SDKs                 |
-| Device Info         | deviceInfo     | Automatically managed by SDKs                 |
-| Anonymous ID        | anonymousId    | Automatically managed by SDKs                 |
-| Channel             | channel        | Automatically managed by SDKs                 |
-| Timezone            | timezone       | Automatically managed by SDKs                 |
-| Screen data         | screen         | Automatically managed by SDKs                 |
-| App Language        | appLanguage    |                                               |
-| Release Version     | releaseVersion | App version, or build number/git hash for web |
-| Person analytics ID | presonId       | For logged in users, see below                |
+| Data                | Name           | Comments                                                                                      |
+|---------------------|----------------|-----------------------------------------------------------------------------------------------|
+| OS                  | os             | `DeviceInfo.Platform`                                                                         |
+| OS Locale           | locale         | `CultureInfo.CurrentUICulture.TextInfo`                                                       |
+| Online              | wasOnline      | `true` if the device was online at the tracking time                                          |
+| Device Info         | deviceInfo     | `DeviceInfo` as json                                                                          |
+| Anonymous ID        | anonymousId    | `SetAnonymousId(Guid.NewGuid().ToString())`. If changed a new call to `identify` must be made |
+| Channel             | channel        | `mobile`\`web`\`tv`                                                                           |
+| Timezone            | timezone       | `new DateTimeOffset(DateTime.Now).Offset`                                                     |
+| Screen data         | screen         | `DeviceDisplay.MainDisplayInfo` as json                                                       |
+| App Language        | appLanguage    |                                                                                               |
+| Release Version     | releaseVersion | App version, or build number/git hash for web                                                 |
+| Person analytics ID | presonId       | For logged in users, see below                                                                |
 
 ### Person analytics ID
 
@@ -73,10 +73,10 @@ Use the `/identify` endpoint. Docs:			https://docs.rudderstack.com/rudderstack-a
 This call accepts much more data, but we do not want to send it here. The additional
 data will be automatically injected by RudderStack, and delivered to the needed targets.
 
-| Data         | Name        | Comments                                                                         |
-|--------------|-------------|----------------------------------------------------------------------------------|
-| Anonymous ID | anonymousId | Automatically managed by SDKs                                                    |
-| PersonID     | id          | This is the actual person ID. It will be used for data lookup and then discarded |
+| Data         | Name        | Comments                                                                                      |
+|--------------|-------------|-----------------------------------------------------------------------------------------------|
+| Anonymous ID | anonymousId | `SetAnonymousId(Guid.NewGuid().ToString())`. If changed a new call to `identify` must be made |
+| PersonID     | id          | This is the actual person ID. It will be used for data lookup and then discarded              |
 
 ## Screen/Page View
 
@@ -93,7 +93,8 @@ Use the `/screen` endpoint in app. Docs: https://docs.rudderstack.com/rudderstac
 
 ### Data
 
-The rest of the relevant additional data is automatically collected by the SDK.
+The rest of the relevant additional data is automatically collected by the SDK on web. App does not
+deliver additional data.
 
 | Data         | Name        | Comments                                       |
 |--------------|-------------|------------------------------------------------|
