@@ -84,7 +84,9 @@ There is significant history and expertise in the team, the language itself is
 well supported (Microsoft) and actively developed, and well suited for the task.
 
 A.G:
-TODO: Comments
+.NET is really good. However, I think the amount of magic and the
+amount of things you need to know is too much, especially to just write an API.
+No strong opinions, though.
 
 M.D:
 In this case you are not really free to choose a framework. You are more or less
@@ -103,7 +105,10 @@ leads to some boilerplate but on average keeps the language fairly easy to read
 and very explicit.
 
 A.G:
-TODO: Comments
+What I like about Go is that it seems easier to make something performant
+with Go than with .NET. I also have the same view as Matjaz when it comes to magical
+features. Go is more explicit in everything it does, and it's not a coincidence,
+it seems to be a part of the language design.
 
 M.D:
 I think Go is very well suited for us because of it's simplicity and explicitness.
