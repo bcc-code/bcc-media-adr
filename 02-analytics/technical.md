@@ -40,7 +40,7 @@ platform and not on the other.
 | Online              | wasOnline      | `true` if the device was online at the tracking time                                          |
 | Device Info         | deviceInfo     | `DeviceInfo` as json                                                                          |
 | Anonymous ID        | anonymousId    | `SetAnonymousId(Guid.NewGuid().ToString())`. If changed a new call to `identify` must be made |
-| Channel             | channel        | `mobile`\`web`\`tv`                                                                           |
+| Channel             | channel        | `mobile`/`web`/`tv`                                                                           |
 | Timezone            | timezone       | `new DateTimeOffset(DateTime.Now).Offset`                                                     |
 | Screen data         | screen         | `DeviceDisplay.MainDisplayInfo` as json                                                       |
 | App Language        | appLanguage    |                                                                                               |
@@ -70,13 +70,23 @@ Use the `/identify` endpoint. Docs:			https://docs.rudderstack.com/rudderstack-a
 
 ### Data
 
-This call accepts much more data, but we do not want to send it here. The additional
-data will be automatically injected by RudderStack, and delivered to the needed targets.
+#### Signed in users
 
-| Data         | Name        | Comments                                                                                      |
-|--------------|-------------|-----------------------------------------------------------------------------------------------|
-| Anonymous ID | anonymousId | `SetAnonymousId(Guid.NewGuid().ToString())`. If changed a new call to `identify` must be made |
-| PersonID     | id          | This is the actual person ID. It will be used for data lookup and then discarded              |
+For the `userId`, pass in the analyticsId. For `traits` send the personId as `personId` and nothing more.
+This call accepts much more data, but we do not want to send it here. When you pass the "personId" as a trait, the additional
+data will be automatically injected by RudderStack, and delivered to the needed targets.
+Example javascript code:
+
+```js
+var analyticsId = getAnalyticsId();
+var personId = getPersonId();
+rudderanalytics.identify(analyticsId, {
+  personId: personId
+});
+```
+
+#### Anonymous users
+Calling identify for anonymous users isn't necessary unless we want to give them traits, but we don't need this for now.
 
 ## Screen/Page View
 
