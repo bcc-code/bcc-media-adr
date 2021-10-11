@@ -224,7 +224,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 |----------------|-------------------|------------------------------|
 | Event ID       | event             | Hardcoded: `searchPerformed` |
 | Search Term    | searchText        | exact search term            |
-| Search Latency | searchLatency     | how long did the search take |
+| Search Latency | searchLatency     | how long did the search take in milliseconds (int) |
 | Result Count   | searchResultCount |                              |
 
 
