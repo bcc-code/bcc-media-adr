@@ -147,15 +147,16 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data         | Name        | Comments                                      |
-|--------------|-------------|-----------------------------------------------|
-| Event ID     | event       | Hardcoded: `sectionClicked`                   |
-| section ID   | sectionId   | ID of the section that the element belongs to |
-| section Name | sectionName | For easier identification in tools            |
-| Element Type | elementType | episode, series, ...                          |
-| Element ID   | elementId   | id of the clicked element                     |
-| See All      | seeAll      | true if the tapped element was "See All"      |
-| Page Name    | pageName    | same ID as for page/screen tracking           |
+| Data             | Name            | Comments                                      |
+|------------------|-----------------|-----------------------------------------------|
+| Event ID         | event           | Hardcoded: `sectionClicked`                   |
+| section ID       | sectionId       | ID of the section that the element belongs to |
+| section Name     | sectionName     | For easier identification in tools            |
+| Element Position | elementPosition | int                                           |
+| Element Type     | elementType     | episode, series, ...                          |
+| Element ID       | elementId       | id of the clicked element                     |
+| See All          | seeAll          | true if the tapped element was "See All"      |
+| Page Name        | pageName        | same ID as for page/screen tracking           |
 
 ## Liveboard click (liveboard_clicked)
 
