@@ -152,7 +152,8 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Event ID         | event           | Hardcoded: `sectionClicked`                   |
 | Section ID       | sectionId       | ID of the section that the element belongs to |
 | Section Name     | sectionName     | For easier identification in tools            |
-| Section position | sectionPosition | int, position in the page's list of sections  |
+| Section Position | sectionPosition | int, position in the page's list of sections  |
+| Section Type     | sectionType     | slider, featured, etc                         |
 | Element Position | elementPosition | int, position in the section's list of items  |
 | Element Type     | elementType     | episode, series, ...                          |
 | Element ID       | elementId       | id of the clicked element                     |
