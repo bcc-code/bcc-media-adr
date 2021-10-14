@@ -336,6 +336,7 @@ document. They should be used as they are here (camelCase).
 | Volume          | volume             | in %                                                                                                         |
 | Has video       | hasVideo          | false if in "audio only mode"                                                                                |
 | Subs            | subtitlesLanguage | null if not possible to determine. "OFF" if turned off. "N/A" if subs are not available in selected language |
+| Audio           | audioLanguage     | null if not possible to determine. "OFF" if turned off. "N/A" if audio is not available in selected language |
 
 ## API
 
