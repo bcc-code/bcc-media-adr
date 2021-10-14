@@ -363,6 +363,8 @@ This events contain no extra data
 
 ## Seek End (playback_seeking_ended)
 
+**Note:** If the user clicks around multiple times as part of "one" seek, 'seekStartPosition' should be based on the first click. 'seekTime' however, should be based on the last click.
+
 ### Data
 
 | Data          | Name              | Comments                             |
