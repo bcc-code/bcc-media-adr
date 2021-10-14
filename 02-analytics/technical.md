@@ -361,25 +361,15 @@ This events contain no extra data
 | Event ID             | eventID    | `playbackEndedBuffering` |
 | Time spent Buffering | bufferTime |                          |
 
-## Seek Start (playback_seeking_started)
-
-### Data
-
-| Data          | Name         | Comments              |
-|---------------|--------------|-----------------------|
-| Event ID      | eventID      | `playbackSeekStarted` |
-| Is Playing    | isPlaying    |                       |
-| Seek position | seekPosition | offset in seconds     |
-
 ## Seek End (playback_seeking_ended)
 
 ### Data
 
-| Data          | Name         | Comments                             |
-|---------------|--------------|--------------------------------------|
-| Event ID      | eventID      | `playbackSeekEnded`                  |
-| Seek position | seekPosition | offset in seconds                    |
-| Seek time     | seekTime     | in seconds, including buffering time |
+| Data          | Name              | Comments                             |
+|---------------|-------------------|--------------------------------------|
+| Event ID      | eventID           | `playbackSeekEnded`                  |
+| Seek start    | seekStartPosition | offset in seconds                    |
+| Seek time     | seekTime          | in seconds, including buffering time |
 
 ## Playback end (playback_ended)
 
