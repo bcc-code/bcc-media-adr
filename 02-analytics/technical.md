@@ -150,9 +150,11 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Data             | Name            | Comments                                      |
 |------------------|-----------------|-----------------------------------------------|
 | Event ID         | event           | Hardcoded: `sectionClicked`                   |
-| section ID       | sectionId       | ID of the section that the element belongs to |
-| section Name     | sectionName     | For easier identification in tools            |
-| Element Position | elementPosition | int                                           |
+| Section ID       | sectionId       | ID of the section that the element belongs to |
+| Section Name     | sectionName     | For easier identification in tools            |
+| Section Position | sectionPosition | int, position in the page's list of sections  |
+| Section Type     | sectionType     | slider, featured, etc                         |
+| Element Position | elementPosition | int, position in the section's list of items  |
 | Element Type     | elementType     | episode, series, ...                          |
 | Element ID       | elementId       | id of the clicked element                     |
 | See All          | seeAll          | true if the tapped element was "See All"      |
@@ -334,6 +336,7 @@ document. They should be used as they are here (camelCase).
 | Volume          | volume             | in %                                                                                                         |
 | Has video       | hasVideo          | false if in "audio only mode"                                                                                |
 | Subs            | subtitlesLanguage | null if not possible to determine. "OFF" if turned off. "N/A" if subs are not available in selected language |
+| Audio           | audioLanguage     | null if not possible to determine. "N/A" if audio is not available in selected language |
 
 ## API
 
@@ -359,25 +362,17 @@ This events contain no extra data
 | Event ID             | eventID    | `playbackEndedBuffering` |
 | Time spent Buffering | bufferTime |                          |
 
-## Seek Start (playback_seeking_started)
-
-### Data
-
-| Data          | Name         | Comments              |
-|---------------|--------------|-----------------------|
-| Event ID      | eventID      | `playbackSeekStarted` |
-| Is Playing    | isPlaying    |                       |
-| Seek position | seekPosition | offset in seconds     |
-
 ## Seek End (playback_seeking_ended)
 
+**Note:** If the user clicks around multiple times as part of "one" seek, 'seekStartPosition' should be based on the first click. 'seekTime' however, should be based on the last click.
+
 ### Data
 
-| Data          | Name         | Comments                             |
-|---------------|--------------|--------------------------------------|
-| Event ID      | eventID      | `playbackSeekEnded`                  |
-| Seek position | seekPosition | offset in seconds                    |
-| Seek time     | seekTime     | in seconds, including buffering time |
+| Data          | Name              | Comments                             |
+|---------------|-------------------|--------------------------------------|
+| Event ID      | eventID           | `playbackSeekEnded`                  |
+| Seek start    | seekStartPosition | offset in seconds                    |
+| Seek time     | seekTime          | in seconds, including buffering time |
 
 ## Playback end (playback_ended)
 
