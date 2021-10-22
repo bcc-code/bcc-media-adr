@@ -22,13 +22,13 @@ the name `analytics_cache_deleted` should be cached.
 
 ## Common data
 
-The data specified below should be sent with every event, unless otherwise noted. 
+The data specified below should be sent with every event, unless otherwise noted.
 If it is not possible for all events then that should be noted in this document.
 
 In general it is better to omit data (if for example it is not accessible on some
 os version), and send what you can.
 
-Note that this is for both APP and Web so some things may be possible on one 
+Note that this is for both APP and Web so some things may be possible on one
 platform and not on the other.
 
 ### Common data table
@@ -59,7 +59,7 @@ posses the secret.
 
 *When*: On login
 In addition this call should be made when user starts the application and is already
-logged in, but has not sent an identify! This is so the existing users do not have to 
+logged in, but has not sent an identify! This is so the existing users do not have to
 login again.
 *Reason*: Being able to connect events based on the anonymousId (1 per device) to
 the user that is logged in.
@@ -149,7 +149,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data             | Name            | Comments                                      |
 |------------------|-----------------|-----------------------------------------------|
-| Event ID         | event           | Hardcoded: `sectionClicked`                   |
+| Event ID         | event           | Hardcoded: `section_clicked`                  |
 | Section ID       | sectionId       | ID of the section that the element belongs to |
 | Section Name     | sectionName     | For easier identification in tools            |
 | Section Position | sectionPosition | int, position in the page's list of sections  |
@@ -176,14 +176,14 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data            | Name           | Comments                                           |
 |-----------------|----------------|----------------------------------------------------|
-| Event ID        | event          | Hardcoded: `liveboardClicked`                      |
+| Event ID        | event          | Hardcoded: `liveboard_clicked`                     |
 | Module ID       | moduleId       | from Firestore                                     |
 | Module Type     | moduleType     | from Firestore                                     |
 | Module Position | modulePosition | top module == 1 (easier logic for non-tech people) |
 | Event ID        | eventId        |                                                    |
 | Event Name      | eventName      | Optional                                           |
 
-## Audio Only (videoToggle)
+## Audio Only (video_toggle)
 
 *When*: User clicks/taps the audio only button
 
@@ -197,7 +197,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data        | Name             | Comments                     |
 |-------------|------------------|------------------------------|
-| Event ID    | event            | Hardcoded: `videoToggle`     |
+| Event ID    | event            | Hardcoded: `video_toggle`    |
 | Video state | videoStateTarget | Video state *after* tap      |
 
 
@@ -215,7 +215,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data          | Name         | Comments                                      |
 |---------------|--------------|-----------------------------------------------|
-| Event ID      | event        | Hardcoded: `calendarClicked`                  |
+| Event ID      | event        | Hardcoded: `calendar_clicked`                 |
 | Page Name     | pageName     | same ID as for page/screen tracking           |
 | Calendar view | calendarView | `week` or `month`                             |
 | Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
@@ -233,12 +233,12 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data           | Name              | Comments                     |
-|----------------|-------------------|------------------------------|
-| Event ID       | event             | Hardcoded: `searchPerformed` |
-| Search Term    | searchText        | exact search term            |
+| Data           | Name              | Comments                                           |
+|----------------|-------------------|----------------------------------------------------|
+| Event ID       | event             | Hardcoded: `search_performed`                      |
+| Search Term    | searchText        | exact search term                                  |
 | Search Latency | searchLatency     | how long did the search take in milliseconds (int) |
-| Result Count   | searchResultCount |                              |
+| Result Count   | searchResultCount |                                                    |
 
 
 ## Search Result click (search_result_clicked)
@@ -253,13 +253,13 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data            | Name                 | Comments                         |
-|-----------------|----------------------|----------------------------------|
-| Event ID        | event                | Hardcoded: `searchResultClicked` |
-| Search Term     | searchText           | exact search term                |
-| Result Position | searchResultPosition | how long did the search take     |
-| Element Type    | elementType          | episode, series, ...             |
-| Element ID      | elementId            | series, episode ID               |
+| Data            | Name                 | Comments                           |
+|-----------------|----------------------|------------------------------------|
+| Event ID        | event                | Hardcoded: `search_result_clicked` |
+| Search Term     | searchText           | exact search term                  |
+| Result Position | searchResultPosition | how long did the search take       |
+| Element Type    | elementType          | episode, series, ...               |
+| Element ID      | elementId            | series, episode ID                 |
 
 ## Language Change (language_changed)
 
@@ -277,7 +277,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data          | Name               | Comments                            |
 |---------------|--------------------|-------------------------------------|
-| Event ID      | event              | Hardcoded: `languageChanged`        |
+| Event ID      | event              | Hardcoded: `language_changed`       |
 | Page Name     | pageName           | same ID as for page/screen tracking |
 | From Language | languageFrom       |                                     |
 | To Language   | languageTo         |                                     |
@@ -297,7 +297,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data          | Name               | Comments                            |
 |---------------|--------------------|-------------------------------------|
-| Event ID      | event              | Hardcoded: `contentShared`          |
+| Event ID      | event              | Hardcoded: `content_shared`         |
 | Page Name     | pageName           | same ID as for page/screen tracking |
 | Element Type  | elementType        | episode, series, ...                |
 | Element ID    | elementId          | series, episode ID                  |
@@ -307,12 +307,12 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 This tracking events do not have data besides the common fields. The list contains
 the `EventID` values to be used
 
-| Event              | Event ID          |
-|--------------------|-------------------|
-| Log In             | login             |
-| Log Out            | logout            |
-| Airplay started    | airplayStarted    |
-| ChromeCast started | chromecastStarted |
+| Event              | Event ID           |
+|--------------------|--------------------|
+| Log In             | login              |
+| Log Out            | logout             |
+| Airplay started    | airplay_started    |
+| ChromeCast started | chromecast_started |
 
 ## Video events
 
@@ -344,7 +344,7 @@ Use the `/track` API as described here: https://docs.rudderstack.com/rudderstack
 
 ## Standard video events
 
-This events contain no extra data 
+This events contain no extra data
 
 | Event                 | Event ID                   |
 |-----------------------|----------------------------|
@@ -357,10 +357,10 @@ This events contain no extra data
 
 ### Data
 
-| Data                 | Name       | Comments                 |
-|----------------------|------------|--------------------------|
-| Event ID             | eventID    | `playbackEndedBuffering` |
-| Time spent Buffering | bufferTime |                          |
+| Data                 | Name       | Comments                   |
+|----------------------|------------|----------------------------|
+| Event ID             | eventID    | `playback_ended_buffering` |
+| Time spent Buffering | bufferTime |                            |
 
 ## Seek End (playback_seeking_ended)
 
@@ -370,7 +370,7 @@ This events contain no extra data
 
 | Data          | Name              | Comments                             |
 |---------------|-------------------|--------------------------------------|
-| Event ID      | eventID           | `playbackSeekEnded`                  |
+| Event ID      | eventID           | `playback_seek_ended`                |
 | Seek start    | seekStartPosition | offset in seconds                    |
 | Seek time     | seekTime          | in seconds, including buffering time |
 
@@ -378,10 +378,10 @@ This events contain no extra data
 
 ### Data
 
-| Data            | Name          | Comments        |
-|-----------------|---------------|-----------------|
-| Event ID        | eventID       | `playbackEnded` |
-| Next episode id | nextEpisodeId | if relevant     |
+| Data            | Name          | Comments         |
+|-----------------|---------------|------------------|
+| Event ID        | eventID       | `playback_ended` |
+| Next episode id | nextEpisodeId | if relevant      |
 
 ## Playback playing (playback_playing)
 
@@ -389,7 +389,7 @@ This should be sent every 60 seconds as long as the player is playing.
 
 ### Data
 
-| Data     | Name          | Commnets          |
-|----------|---------------|-------------------|
-| Event ID | eventID       | `playbackPlaying` |
+| Data     | Name    | Commnets           |
+|----------|---------|--------------------|
+| Event ID | eventID | `playback_playing` |
 
