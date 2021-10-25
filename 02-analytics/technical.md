@@ -302,6 +302,22 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Element Type  | elementType        | episode, series, ...                |
 | Element ID    | elementId          | series, episode ID                  |
 
+## Play next (play_next)
+
+*When*: When play next feature selects next episode on the list.
+
+### API
+
+Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
+
+### Data
+
+| Data               | Name             | Comments                                 |
+|--------------------|------------------|------------------------------------------|
+| Event ID           | eventID          | Hardcoded: `play_next`                   |
+| Current episode id | currentEpisodeId | id of the episode that just has finished |
+| Next episode id    | nextEpisodeId    | id of the episode that will be played    |
+
 ## Other Tracking events
 
 This tracking events do not have data besides the common fields. The list contains
@@ -350,6 +366,7 @@ This events contain no extra data
 |-----------------------|----------------------------|
 | Playback started      | playback_started           |
 | Playback paused       | playback_paused            |
+| Playback end          | playback_ended             |
 | Playback interrupted  | playback_interrupted       |
 | Playback buffer start | playback_buffering_started |
 
@@ -373,15 +390,6 @@ This events contain no extra data
 | Event ID      | eventID           | `playbackSeekEnded`                  |
 | Seek start    | seekStartPosition | offset in seconds                    |
 | Seek time     | seekTime          | in seconds, including buffering time |
-
-## Playback end (playback_ended)
-
-### Data
-
-| Data            | Name          | Comments        |
-|-----------------|---------------|-----------------|
-| Event ID        | eventID       | `playbackEnded` |
-| Next episode id | nextEpisodeId | if relevant     |
 
 ## Playback playing (playback_playing)
 
