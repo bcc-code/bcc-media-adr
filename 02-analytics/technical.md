@@ -359,7 +359,7 @@ This events contain no extra data
 
 | Data                 | Name       | Comments                   |
 |----------------------|------------|----------------------------|
-| Event ID             | eventID    | `playback_ended_buffering` |
+| Event ID             | eventID    | `playback_buffering_ended` |
 | Time spent Buffering | bufferTime |                            |
 
 ## Seek End (playback_seeking_ended)
@@ -370,7 +370,7 @@ This events contain no extra data
 
 | Data          | Name              | Comments                             |
 |---------------|-------------------|--------------------------------------|
-| Event ID      | eventID           | `playback_seek_ended`                |
+| Event ID      | eventID           | `playback_seeking_ended`                |
 | Seek start    | seekStartPosition | offset in seconds                    |
 | Seek time     | seekTime          | in seconds, including buffering time |
 
