@@ -304,7 +304,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ## Selected for next playback (playback_selected_next)
 
-*When*: When play next feature selects next episode on the list.
+*When*: When a video ends and the app has automatically selected the next episode to play. Note: This doesn't mean the playback successfully started.
 
 ### API
 
