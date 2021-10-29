@@ -302,7 +302,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Element Type  | elementType        | episode, series, ...                |
 | Element ID    | elementId          | series, episode ID                  |
 
-## Play next (play_next)
+## Selected for next playback (playback_selected_next)
 
 *When*: When play next feature selects next episode on the list.
 
