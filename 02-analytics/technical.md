@@ -385,11 +385,10 @@ This events contain no extra data
 
 ### Data
 
-| Data          | Name              | Comments                             |
-|---------------|-------------------|--------------------------------------|
-| Event ID      | eventID           | `playback_seeking_ended`                |
-| Seek start    | seekStartPosition | offset in seconds                    |
-| Seek time     | seekTime          | in seconds, including buffering time |
+| Data          | Name              | Comments                                              |
+|---------------|-------------------|-------------------------------------------------------|
+| Event ID      | eventID           | `playback_seeking_ended`                              |
+| SeekTo        | seekTo            | position in video after seek is completed in seconds  |
 
 ## Playback playing (playback_playing)
 
