@@ -343,7 +343,8 @@ document. They should be used as they are here (camelCase).
 |-----------------|--------------------|--------------------------------------------------------------------------------------------------------------|
 | Session ID      | sessionId         | regenerate after 30 minutes of not being used                                                                |
 | Is Live         | livestream         | true/false                                                                                                   |
-| Episode ID      | contentPodId     |                                                                                                              |
+| Content ID      | contentPodId     | string                                                                                                             |
+| Content Type    | contentPodType     | episode, program                                                                                             |
 | Positing        | position           | From start of video in seconds                                                                               |
 | Total Length    | totalLength       | null if live stream                                                                                          |
 | Video Player    | videoPlayer       | Name of the player (VideoJS, ...)                                                                            |
