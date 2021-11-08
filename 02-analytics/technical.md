@@ -45,7 +45,6 @@ platform and not on the other.
 | Screen data         | screen         | `DeviceDisplay.MainDisplayInfo` as json                                                       |
 | App Language        | appLanguage    |                                                                                               |
 | Release Version     | releaseVersion | App version, or build number/git hash for web                                                 |
-| Person analytics ID | presonId       | For logged in users, see below                                                                |
 
 ### Person analytics ID
 
