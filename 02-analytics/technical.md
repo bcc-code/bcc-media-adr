@@ -315,8 +315,8 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Data               | Name             | Comments                                 |
 |--------------------|------------------|------------------------------------------|
 | Event ID           | eventID          | Hardcoded: `play_next`                   |
-| Current episode id | currentEpisodeId | id of the episode that just has finished |
-| Next episode id    | nextEpisodeId    | id of the episode that will be played    |
+| Next contentPod id | nextContentPodId    | string id   |
+| Next contentPod type | nextContentPodType    | episode/program |
 
 ## Other Tracking events
 
