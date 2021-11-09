@@ -378,7 +378,7 @@ This events contain no extra data
 | Data                 | Name       | Comments                   |
 |----------------------|------------|----------------------------|
 | Event ID             | eventID    | `playback_buffering_ended` |
-| Time spent Buffering | bufferTime |                            |
+| Time spent Buffering | bufferTime |  in seconds                |
 
 ## Seek End (playback_seeking_ended)
 
