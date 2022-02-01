@@ -133,6 +133,30 @@ This are the currently used screens from the app:
 * SettingsListPage
 * SupportPage
 
+## Screen disappeared (screen_disappeared)
+
+*When*: Screen dissapears for the user. Mostly as a result of navigating to a new screen or app going into background.
+
+*Reason*: It will allow us to see how used the various pages are.
+
+### API
+
+Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
+
+### Data
+
+| Data                 | Name               | Comments                                         |
+|----------------------|--------------------|--------------------------------------------------|
+| Event ID             | event              | Hardcoded: `screen_disappeared`                  |
+| Name                 | name               | A screen identifier. See comments and list below |
+| Loaded section count | loadedSectionCount | Present for ExplorePage. Number of sections that were loaded below featured when the screen lost focus. Integer value greater or equeal 0 |
+
+### Page/Screen IDs
+
+This are the currently used screens from the app:
+
+* ExplorePage
+
 ## Section click (section_clicked)
 
 *When*: On every tap/click on a section element. This is on all sections, regardless
