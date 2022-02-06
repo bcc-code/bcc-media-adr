@@ -200,7 +200,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Event ID    | event            | Hardcoded: `video_toggle`    |
 | Video state | videoStateTarget | Video state *after* tap      |
 
-## Calendar day click (calendar_day_selected)
+## Calendar day click (calendarday_clicked)
 
 *When*: When user taps/clicks a day in the calendar to see transmission list.
 
@@ -214,7 +214,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data          | Name         | Comments                                      |
 |---------------|--------------|-----------------------------------------------|
-| Event ID      | event        | Hardcoded: `calendar_day_selected`                 |
+| Event ID      | event        | Hardcoded: `calendarday_clicked`                 |
 | Page Name     | pageName     | same ID as for page/screen tracking           |
 | Calendar view | calendarView | `week` or `month`                             |
 | Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
