@@ -133,6 +133,30 @@ This are the currently used screens from the app:
 * SettingsListPage
 * SupportPage
 
+## Video slider rendered (video_slider_rendered)
+
+*When*: When items in horizontal collection that contains videos are rendered for the first time. This happens when user visits the ExplorePage for the first time or scrolls down on said page. Featured corousel is not included.
+
+*Reason*: This gives us information about users' engagement with ExplorePage's video content.
+
+### API
+
+Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
+
+### Data
+
+| Data                 | Name               | Comments                                         |
+|----------------------|--------------------|--------------------------------------------------|
+| Event ID             | event              | Hardcoded: `video_slider_rendered`               |
+| Slider's name        | slider_name        | Title assigned to slider.                        |
+| Slider's position    | slider_position    | Slider's position in a list. Topmost position = 1|
+
+### Page/Screen IDs
+
+This are the currently used screens from the app:
+
+* ExplorePage
+
 ## Section click (section_clicked)
 
 *When*: On every tap/click on a section element. This is on all sections, regardless
