@@ -137,7 +137,7 @@ This are the currently used screens from the app:
 
 *When*: When items in horizontal collection that contains videos are rendered for the first time. This happens when user visits the ExplorePage for the first time or scrolls down on said page. Featured corousel is not included.
 
-*Reason*: This gives us information about users' engagement with ExplorePage's video content.
+*Reason*: This helps us see how what content the user has looked at, e.g. on the home page.
 
 ### API
 
