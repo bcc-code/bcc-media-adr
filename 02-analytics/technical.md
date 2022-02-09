@@ -148,8 +148,11 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Data                 | Name               | Comments                                         |
 |----------------------|--------------------|--------------------------------------------------|
 | Event ID             | event              | Hardcoded: `video_slider_rendered`               |
-| Slider's name        | slider_name        | Title assigned to slider.                        |
-| Slider's position    | slider_position    | Slider's position in a list. Topmost position = 1|
+| Section ID       | sectionId       | ID of the section that the element belongs to |
+| Section Name     | sectionName     | For easier identification in tools            |
+| Section Position | sectionPosition | int, position in the page's list of sections  |
+| Section Type     | sectionType     | slider, featured, etc                         |
+| Page Name        | pageName        | same ID as for page/screen tracking           |
 
 ### Page/Screen IDs
 
