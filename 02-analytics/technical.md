@@ -135,7 +135,7 @@ This are the currently used screens from the app:
 
 ## Section rendered (section_rendered)
 
-*When*: When items in horizontal collection that contains videos are rendered for the first time. This happens when user visits the ExplorePage for the first time or scrolls down on said page. Featured corousel is not included.
+*When*: When items in horizontal collection that contains videos are rendered for the first time. This happens when a user visits the home page for the first time or scrolls down on said page. Featured corousel is not included (for now).
 
 *Reason*: This helps us see how what content the user has looked at, e.g. on the home page.
 
