@@ -148,7 +148,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Data                 | Name               | Comments                                         |
 |----------------------|--------------------|--------------------------------------------------|
 | Event ID             | event              | Hardcoded: `video_slider_rendered`               |
-| Section ID       | sectionId       | ID of the section that the element belongs to |
+| Section ID       | sectionId       | ID of the section                             |
 | Section Name     | sectionName     | For easier identification in tools            |
 | Section Position | sectionPosition | int, position in the page's list of sections  |
 | Section Type     | sectionType     | slider, featured, etc                         |
