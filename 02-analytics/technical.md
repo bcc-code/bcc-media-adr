@@ -133,7 +133,7 @@ This are the currently used screens from the app:
 * SettingsListPage
 * SupportPage
 
-## Section rendered (section_rendered)
+## Section rendered (video_slider_rendered)
 
 *When*: When items in horizontal collection that contains videos are rendered for the first time. This happens when a user visits the home page for the first time or scrolls down on said page. Featured corousel is not included (for now).
 
