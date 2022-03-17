@@ -449,3 +449,21 @@ This should be sent every 60 seconds as long as the player is playing.
 |----------|---------|--------------------|
 | Event ID | eventID | `playback_playing` |
 
+## Playback AVPlayer access log (playback_accesslog)
+
+This event is sent every time AVPlayer access log gets new entry. This entry is translated into this event.
+This is AVPlayer specific feature so it is available only for iOS and tvOS.
+More info https://developer.apple.com/documentation/avfoundation/avplayeritemaccesslogevent
+
+### Data
+
+| Data                                | Name                             | Commnets             |
+|-------------------------------------|----------------------------------|----------------------|
+| Event ID                            | eventID                          | `playback_accesslog` |
+| Average audio bitrate               | averageAudioBitrate              |                      |
+| Average video bitrate               | averageVideoBitrate              |                      |
+| Indicated average bitrate           | indicatedAverageBitrate          |                      |
+| Indicated bitrate                   | indicatedBitrate                 |                      |
+| Observed bitrate                    | observedBitrate                  |                      |
+| Observed bitrate standard deviation | observedBitrateStandardDeviation |                      |
+| Switch bitrate                      | switchBitrate                    |                      |
