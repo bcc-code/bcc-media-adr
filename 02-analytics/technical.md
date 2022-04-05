@@ -442,10 +442,18 @@ This events contain no extra data
 ## Playback playing (playback_playing)
 
 This should be sent every 60 seconds as long as the player is playing.
+Bitrate properties are AVPlayer specific feature so are available only for iOS and tvOS.
+More info https://developer.apple.com/documentation/avfoundation/avplayeritemaccesslogevent
 
 ### Data
 
-| Data     | Name    | Commnets           |
-|----------|---------|--------------------|
-| Event ID | eventID | `playback_playing` |
-
+| Data                                | Name                             | Commnets             |
+|-------------------------------------|----------------------------------|----------------------|
+| Event ID                            | eventID                          | `playback_playing`   |
+| Average audio bitrate               | averageAudioBitrate              |                      |
+| Average video bitrate               | averageVideoBitrate              |                      |
+| Indicated average bitrate           | indicatedAverageBitrate          |                      |
+| Indicated bitrate                   | indicatedBitrate                 |                      |
+| Observed bitrate                    | observedBitrate                  |                      |
+| Observed bitrate standard deviation | observedBitrateStandardDeviation |                      |
+| Switch bitrate                      | switchBitrate                    |                      |
