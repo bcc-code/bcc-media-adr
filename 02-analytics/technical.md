@@ -457,3 +457,29 @@ More info https://developer.apple.com/documentation/avfoundation/avplayeritemacc
 | Observed bitrate                    | observedBitrate                  |                      |
 | Observed bitrate standard deviation | observedBitrateStandardDeviation |                      |
 | Switch bitrate                      | switchBitrate                    |                      |
+
+
+## Notification received (notification_receive)
+
+Event occurs when notification is received on device.
+It doesn't occur for tvOS where notifications are open immediately or stored by operating system.
+
+### Data
+
+| Data               | Name                        | Commnets                 |
+|--------------------|-----------------------------|--------------------------|
+| Event ID           | eventID                     | `notification_receive`   |
+| Notification id    | notificationId              | for tracking purposes    |
+
+## Notification received (notification_open)
+
+Event occurs when notification is opened by the user.
+It doesn't occur for headless notifications that execute in background without user interaction like commands.
+
+### Data
+
+| Data               | Name                        | Commnets                 |
+|--------------------|-----------------------------|--------------------------|
+| Event ID           | eventID                     | `notification_open`      |
+| Notification id    | notificationId              | for tracking purposes    |
+
