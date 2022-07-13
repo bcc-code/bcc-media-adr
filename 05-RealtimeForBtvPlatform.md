@@ -1,4 +1,4 @@
-# 4. Primary backend language
+# 4. Realtime for BrunstadTV platform
 Date: 13.7.2022
 
 ## Status
