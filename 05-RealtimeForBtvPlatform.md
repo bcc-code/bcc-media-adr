@@ -2,7 +2,7 @@
 Date: 13.7.2022
 
 ## Status
-Proposed
+Accepted
 
 ## Context
 
