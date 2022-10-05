@@ -328,6 +328,54 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | To Language   | languageTo         |                                     |
 | Where         | languageChangeType | audio, app, subs                    |
 
+## Open (applicaion_opened)
+
+*When*: When the applications is forgrounded. This may occur because the user tapped the app (icon) or
+for a number of other reasons, such as tapping a deep link or notification.
+
+*Reason*: Usage info
+
+*Notes*: If possible to differentiate the reason it would be nice but that can be omitted if not technically feasible.
+
+### API
+
+Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
+
+### Data
+
+| Data   | Name   | Comments                             |
+|--------|--------|--------------------------------------|
+| Reason | reason | For example, notification, link, ... |
+
+## Deep link
+
+*When*: When the applications processes a deep link
+
+*Reason*: Usage info, campaign tracking
+
+*Notes*:
+
+Some parameters should be extracted from the url if present:
+
+| URL Parameter | Comment                                                      |
+|---------------|--------------------------------------------------------------|
+| cid           | This is for tracking a campaign ID                           |
+| cs            | This is for tracking the source for example ig for instagram |
+
+If not present they should report an empty string, not NULL!
+
+### API
+
+Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
+
+### Data
+
+| Data        | Name       | Comments                            |
+|-------------|------------|-------------------------------------|
+| URL         | url        | Full deep link                      |
+| Source      | source     | cs parameter as described in notes  |
+| Campaign ID | campaignId | cid parameter as described in notes |
+
 ## Share (content_shared)
 
 *When*: When user shares content via the share menu
