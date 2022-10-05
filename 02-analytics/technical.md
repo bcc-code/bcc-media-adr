@@ -347,7 +347,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 |--------|--------|--------------------------------------|
 | Reason | reason | For example, notification, link, ... |
 
-## Deep link
+## Deep link (deep_link_opened)
 
 *When*: When the applications processes a deep link
 
