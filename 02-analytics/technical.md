@@ -346,6 +346,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Data   | Name   | Comments                             |
 |--------|--------|--------------------------------------|
 | Reason | reason | For example, notification, link, ... |
+| Cold Start | coldStart | `true` if the application was not running before (user started it). Otherwise `false` |
 
 ## Deep link (deep_link_opened)
 
