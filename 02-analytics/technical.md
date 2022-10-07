@@ -133,6 +133,44 @@ This are the currently used screens from the app:
 * SettingsListPage
 * SupportPage
 
+
+## Category click (category_click)
+
+*When*: User taps category
+
+*Reason*: 
+
+## API
+
+Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
+
+### Data
+
+| Data             | Name        | Comments                                                                                   |
+|------------------|-------------|--------------------------------------------------------------------------------------------|
+| Event ID         | event       | Hardcoded: `category_clicked`                                                              |
+| Category ID      | categoryId  | Category id of type int                                                                    |
+| Page             | page        | A page identifier where category list is located. See Page/Screen IDs for possible values  |
+
+## Category item click (category_item_click)
+
+*When*: User taps video on category page.
+
+*Reason*: 
+
+## API
+
+Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
+
+### Data
+
+| Data             | Name            | Comments                                                                                   |
+|------------------|-----------------|--------------------------------------------------------------------------------------------|
+| Event ID         | event           | Hardcoded: `category_item_clicked`                                                         |
+| Category ID      | categoryId      | Category id of type int                                                                    |
+| Element Type     | elementType     | episode, series, ...                                                                       |
+| Element ID       | elementId       | id of the clicked element                                                                  |
+
 ## Section rendered (video_slider_rendered)
 
 *When*: When items in horizontal collection that contains videos are rendered for the first time. This happens when a user visits the home page for the first time or scrolls down on said page. Featured corousel is not included (for now).
