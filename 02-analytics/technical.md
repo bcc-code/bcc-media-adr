@@ -180,10 +180,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Section ID       | sectionId       | ID of the section that the element belongs to |
 | Section Name     | sectionName     | For easier identification in tools            |
 | Section Position | sectionPosition | int, position in the page's list of sections  |
-| Section Type     | sectionType     | 
-
-
-featured, etc                         |
+| Section Type     | sectionType     | slider, featured, etc                         |
 | Element Position | elementPosition | int, position in the section's list of items  |
 | Element Type     | elementType     | episode, series, category,                    |
 | Element ID       | elementId       | id of the clicked element                     |
