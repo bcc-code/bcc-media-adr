@@ -354,7 +354,7 @@ for a number of other reasons, such as tapping a deep link or notification.
 
 *Reason*: Usage info
 
-*Notes*: If possible to differentiate the reason it would be nice but that can be omitted if not technically feasible.
+*Notes*: On tvOS there is only reason Default as links and notifications are not handled.
 
 ### API
 
@@ -364,7 +364,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data   | Name   | Comments                             |
 |--------|--------|--------------------------------------|
-| Reason | reason | For example, notification, link, ... |
+| Reason | reason | Describes how application was opened. Possible values: Default, Notification, Link |
 | Cold Start | coldStart | `true` if the application was not running before (user started it). Otherwise `false` |
 
 ## Deep link (deep_link_opened)
