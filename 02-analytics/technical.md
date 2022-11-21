@@ -79,14 +79,14 @@ Use the `/identify` endpoint. Docs:			https://docs.rudderstack.com/rudderstack-a
 | Age Group | `ageGroup` | See Age group List below |
 | Country | `country` | Two letter country code |
 | Church ID | `church` | Numerical church ID as STRING |
-| Gender | `gender` | M or F |
+| Gender | `gender` | male or female |
 
 #### Age groups
 
 Please use the exact strings below:
 
  * UNKNOWN
- * < 10"
+ * < 10
  * 10 - 12
  * 13 - 18
  * 19 - 26
@@ -125,15 +125,16 @@ deliver additional data.
 ### Page/Screen IDs
 
 * about
-* audience
 * calendar
-* liveStream
+* livestream
 * login
 * profileEdit
 * profile
 * search
 * settings
 * support
+* faq
+* episode
 
 ## Category item click (category_item_click)
 
@@ -181,7 +182,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | See All          | seeAll          | true if the tapped element was "See All"      |
 | Page Name        | pageName        | same ID as for page/screen tracking           |
 
-## Audio Only (video_toggled)
+## Audio Only (audioonly_clicked)
 
 *When*: User clicks/taps the audio only button
 
@@ -195,7 +196,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data        | Name             | Comments                     |
 |-------------|------------------|------------------------------|
-| Event ID    | event            | Hardcoded: `video_toggled`    |
+| Event ID    | event            | Hardcoded: `audioonly_clicked`    |
 | Video state | videoStateTarget | Video state *after* tap      |
 
 ## Calendar day click (calendarday_clicked)
@@ -366,6 +367,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Page Name     | pageName           | same ID as for page/screen tracking |
 | Element Type  | elementType        | episode, series, ...                |
 | Element ID    | elementId          | series, episode ID                  |
+| position    | position          | playback position in **seconds**. `null` if shared without time          |
 
 ## Other Tracking events
 
@@ -474,6 +476,8 @@ It doesn't occur for tvOS where notifications are open immediately or stored by 
 |--------------------|-----------------------------|--------------------------|
 | Event ID           | eventID                     | `notification_received`   |
 | Notification id    | notificationId              | for tracking purposes    |
+| action         | action         | `deep_link`, `clear_cache`, null  |
+| deeplink         | string         |   if action is `deep_link`  |
 
 ## Notification received (notification_open)
 
