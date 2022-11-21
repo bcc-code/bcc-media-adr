@@ -57,10 +57,7 @@ posses the secret.
 
 ## Identify
 
-*When*: On login
-In addition this call should be made when user starts the application and is already
-logged in, but has not sent an identify! This is so the existing users do not have to
-login again.
+*When*: On app launch && login
 *Reason*: Being able to connect events based on the anonymousId (1 per device) to
 the user that is logged in.
 
@@ -71,19 +68,32 @@ Use the `/identify` endpoint. Docs:			https://docs.rudderstack.com/rudderstack-a
 ### Data
 
 #### Signed in users
+`userId`: Accessible from GQL under `me` endpoint
 
-For the `userId`, pass in the analyticsId. For `traits` send the personId as `personId` and nothing more.
-This call accepts much more data, but we do not want to send it here. When you pass the "personId" as a trait, the additional
-data will be automatically injected by RudderStack, and delivered to the needed targets.
-Example javascript code:
+`traits`
 
-```js
-var analyticsId = getAnalyticsId();
-var personId = getPersonId();
-rudderanalytics.identify(analyticsId, {
-  personId: personId
-});
-```
+| Data | Name | Comments |
+|------|------|----------|
+| Unique user ID | `id` | Same as the `userId` |
+| Users exact age | `age` | Currently not used. Need to figure out how to guarantee anonymity |
+| Age Group | `ageGroup` | See Age group List below |
+| Country | `country` | Two letter country code |
+| Church ID | `church` | Numerical church ID |
+| Gender | `gender` | M or F |
+
+#### Age groups
+
+Please use the exact strings below:
+
+ * UNKNOWN
+ * < 10"
+ * 10 - 12
+ * 13 - 18
+ * 19 - 26
+ * 26 - 36
+ * 37 - 50
+ * 51 - 65
+ * 65+
 
 #### Anonymous users
 Calling identify for anonymous users isn't necessary unless we want to give them traits, but we don't need this for now.
@@ -108,30 +118,22 @@ deliver additional data.
 
 | Data         | Name        | Comments                                       |
 |--------------|-------------|------------------------------------------------|
-| Name         | name        | A page identifier. See comments and list below |
-| Element Type | elementType | episode, series, ...                           |
-| Element ID   | elementId   | series, episode ID                             |
+| ID | Id | Code of the page if generated or from the list below. String |
+| Title | title | String, native language |
+| Additional info | meta | JSON. Currently unused, but fields can be added as needed |
 
 ### Page/Screen IDs
 
-This are the currently used screens from the app:
-
-* AboutPage
-* AudiencePage
-* CalendarPage
-* ExplorePage
-* InfoPage
-* LiveStreamPage
-* LoginPage
-* NativePlayer
-* ProfileEditPage
-* ProfilePage
-* ProgramPage
-* QueuePage
-* SearchPage
-* SeriesPage
-* SettingsListPage
-* SupportPage
+* about
+* audience
+* calendar
+* liveStream
+* login
+* profileEdit
+* profile
+* search
+* settings
+* support
 
 ## Category item click (category_item_click)
 
@@ -151,33 +153,6 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Category ID      | categoryId      | Category id of type int                                                                    |
 | Element Type     | elementType     | episode, series, ...                                                                       |
 | Element ID       | elementId       | id of the clicked element                                                                  |
-
-## Section rendered (video_slider_rendered)
-
-*When*: When items in horizontal collection that contains videos are rendered for the first time. This happens when a user visits the home page for the first time or scrolls down on said page. Featured corousel is not included (for now).
-
-*Reason*: This helps us see how what content the user has looked at, e.g. on the home page.
-
-### API
-
-Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
-
-### Data
-
-| Data                 | Name               | Comments                                         |
-|----------------------|--------------------|--------------------------------------------------|
-| Event ID             | event              | Hardcoded: `video_slider_rendered`               |
-| Section ID       | sectionId       | ID of the section                             |
-| Section Name     | sectionName     | For easier identification in tools            |
-| Section Position | sectionPosition | int, position in the page's list of sections  |
-| Section Type     | sectionType     | slider, featured, etc                         |
-| Page Name        | pageName        | same ID as for page/screen tracking           |
-
-### Page/Screen IDs
-
-This are the currently used screens from the app:
-
-* ExplorePage
 
 ## Section click (section_clicked)
 
@@ -206,30 +181,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | See All          | seeAll          | true if the tapped element was "See All"      |
 | Page Name        | pageName        | same ID as for page/screen tracking           |
 
-## Liveboard click (liveboard_clicked)
-
-*When*: User clicks an element in the liveboard. This is for all screens where
-liveboard appears (or may appear in the future).
-
-*Reason*: Better understanding about how the modules are user, and how changes
-in order, etc affect the use. Can also be used for debug purposes.
-
-### API
-
-Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
-
-### Data
-
-| Data            | Name           | Comments                                           |
-|-----------------|----------------|----------------------------------------------------|
-| Event ID        | event          | Hardcoded: `liveboard_clicked`                     |
-| Module ID       | moduleId       | from Firestore                                     |
-| Module Type     | moduleType     | from Firestore                                     |
-| Module Position | modulePosition | top module == 1 (easier logic for non-tech people) |
-| Event ID        | eventId        |                                                    |
-| Event Name      | eventName      | Optional                                           |
-
-## Audio Only (video_toggle)
+## Audio Only (video_toggled)
 
 *When*: User clicks/taps the audio only button
 
@@ -243,7 +195,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data        | Name             | Comments                     |
 |-------------|------------------|------------------------------|
-| Event ID    | event            | Hardcoded: `video_toggle`    |
+| Event ID    | event            | Hardcoded: `video_toggled`    |
 | Video state | videoStateTarget | Video state *after* tap      |
 
 ## Calendar day click (calendarday_clicked)
@@ -265,7 +217,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Calendar view | calendarView | `week` or `month`                             |
 | Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
 
-## Calendar click (calendar_clicked)
+## Calendar click (calendarentry_clicked)
 
 *When*: When user taps/clicks an element in the calendar
 
@@ -279,7 +231,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data          | Name         | Comments                                      |
 |---------------|--------------|-----------------------------------------------|
-| Event ID      | event        | Hardcoded: `calendar_clicked`                 |
+| Event ID      | event        | Hardcoded: `calendarentry_clicked`                 |
 | Page Name     | pageName     | same ID as for page/screen tracking           |
 | Calendar view | calendarView | `week` or `month`                             |
 | Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
@@ -305,7 +257,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Result Count   | searchResultCount |                                                    |
 
 
-## Search Result click (search_result_clicked)
+## Search Result click (searchresult_clicked)
 
 *When*: When user clicks/taps on a search result
 
@@ -396,7 +348,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Source      | source     | cs parameter as described in notes  |
 | Campaign ID | campaignId | cid parameter as described in notes |
 
-## Share (content_shared)
+## Share (share_clicked)
 
 *When*: When user shares content via the share menu
 
@@ -414,22 +366,6 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Page Name     | pageName           | same ID as for page/screen tracking |
 | Element Type  | elementType        | episode, series, ...                |
 | Element ID    | elementId          | series, episode ID                  |
-
-## Selected for next playback (playback_selected_next)
-
-*When*: When a video ends and the app has automatically selected the next episode to play. Note: This doesn't mean the playback successfully started.
-
-### API
-
-Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
-
-### Data
-
-| Data               | Name             | Comments                                 |
-|--------------------|------------------|------------------------------------------|
-| Event ID           | eventID          | Hardcoded: `play_next`                   |
-| Next contentPod id | nextContentPodId    | string id   |
-| Next contentPod type | nextContentPodType    | episode/program |
 
 ## Other Tracking events
 
@@ -527,7 +463,7 @@ More info https://developer.apple.com/documentation/avfoundation/avplayeritemacc
 | Switch bitrate                      | switchBitrate                    |                      |
 
 
-## Notification received (notification_receive)
+## Notification received (notification_received)
 
 Event occurs when notification is received on device.
 It doesn't occur for tvOS where notifications are open immediately or stored by operating system.
@@ -536,7 +472,7 @@ It doesn't occur for tvOS where notifications are open immediately or stored by 
 
 | Data               | Name                        | Commnets                 |
 |--------------------|-----------------------------|--------------------------|
-| Event ID           | eventID                     | `notification_receive`   |
+| Event ID           | eventID                     | `notification_received`   |
 | Notification id    | notificationId              | for tracking purposes    |
 
 ## Notification received (notification_open)
