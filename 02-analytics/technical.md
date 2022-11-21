@@ -78,7 +78,7 @@ Use the `/identify` endpoint. Docs:			https://docs.rudderstack.com/rudderstack-a
 | Users exact age | `age` | Currently not used. Need to figure out how to guarantee anonymity |
 | Age Group | `ageGroup` | See Age group List below |
 | Country | `country` | Two letter country code |
-| Church ID | `church` | Numerical church ID |
+| Church ID | `church` | Numerical church ID as STRING |
 | Gender | `gender` | M or F |
 
 #### Age groups
