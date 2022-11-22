@@ -120,7 +120,7 @@ deliver additional data.
 |--------------|-------------|------------------------------------------------|
 | ID | Id | Code of the page if generated or from the list below. String |
 | Title | title | String, native language |
-| Additional info | meta | JSON. Currently unused, but fields can be added as needed |
+| Additional info | meta | JSON. See below for `settings` example, but fields can be added as needed |
 
 ### Page/Screen IDs
 
@@ -135,6 +135,35 @@ deliver additional data.
 * support
 * faq
 * episode
+
+### Additional info
+
+```json
+{
+	"setting": "appLanguage"
+}
+```
+
+```json
+{
+	"setting": "audioLanguage"
+}
+```
+
+```json
+{
+	"setting": "subtitlesLanguage"
+}
+```
+
+Web:
+```json
+{
+	"setting": "webSettings"
+}
+```
+
+
 
 ## Section click (section_clicked)
 
