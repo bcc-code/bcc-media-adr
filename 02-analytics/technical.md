@@ -243,7 +243,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Data          | Name         | Comments                                      |
 |---------------|--------------|-----------------------------------------------|
 | Event ID      | event        | Hardcoded: `calendarentry_clicked`                 |
-| Page Name     | pageName     | same ID as for page/screen tracking           |
+| Page Code     | pageCode     | same code as for page/screen tracking           |
 | Calendar view | calendarView | `week` or `month`                             |
 | Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
 | Element Id    | elementId    | If tap leads to an episode, record episode id |
