@@ -136,25 +136,6 @@ deliver additional data.
 * faq
 * episode
 
-## Category item click (category_item_click)
-
-*When*: User taps video on category page.
-
-*Reason*: 
-
-### API
-
-Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
-
-### Data
-
-| Data             | Name            | Comments                                                                                   |
-|------------------|-----------------|--------------------------------------------------------------------------------------------|
-| Event ID         | event           | Hardcoded: `category_item_clicked`                                                         |
-| Category ID      | categoryId      | Category id of type int                                                                    |
-| Element Type     | elementType     | episode, series, ...                                                                       |
-| Element ID       | elementId       | id of the clicked element                                                                  |
-
 ## Section click (section_clicked)
 
 *When*: On every tap/click on a section element. This is on all sections, regardless
