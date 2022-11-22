@@ -156,9 +156,9 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Section ID       | sectionId       | ID of the section that the element belongs to |
 | Section Name     | sectionName     | For easier identification in tools            |
 | Section Position | sectionPosition | int, position in the page's list of sections  |
-| Section Type     | sectionType     | slider, featured, etc                         |
+| Section Type     | sectionType     | `__typename` from GQL DefaultSection, ...     |
 | Element Position | elementPosition | int, position in the section's list of items  |
-| Element Type     | elementType     | episode, series, category,                    |
+| Element Type     | elementType     | `item.__typename` from GQL? Episode, Show, ...|
 | Element ID       | elementId       | id of the clicked element                     |
 | Element Name     | elementName     | localized name of the clicked element         |
 | Page Code        | pageCode        | same ID as for page/screen tracking           |
