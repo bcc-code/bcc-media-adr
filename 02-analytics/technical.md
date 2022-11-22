@@ -284,7 +284,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 |-----------------|----------------------|------------------------------------|
 | Event ID        | event                | Hardcoded: `search_result_clicked` |
 | Search Term     | searchText           | exact search term                  |
-| Result Position | searchResultPosition | how long did the search take       |
+| Element Position | elementPosition 	 | position in the list               |
 | Element Type    | elementType          | episode, series, ...               |
 | Element ID      | elementId            | series, episode ID                 |
 
