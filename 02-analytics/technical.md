@@ -34,7 +34,7 @@ platform and not on the other.
 ### Common data table
 
 | Data                | Name           | Comments                                                                                      |
-|---------------------|----------------|-----------------------------------------------------------------------------------------------|
+| ------------------- | -------------- | --------------------------------------------------------------------------------------------- |
 | OS                  | os             | `DeviceInfo.Platform`                                                                         |
 | OS Locale           | locale         | `CultureInfo.CurrentUICulture.TextInfo`                                                       |
 | Online              | wasOnline      | `true` if the device was online at the tracking time                                          |
@@ -57,53 +57,55 @@ posses the secret.
 
 ## Identify
 
-*When*: On app launch && login
-*Reason*: Being able to connect events based on the anonymousId (1 per device) to
+_When_: On app launch && login
+_Reason_: Being able to connect events based on the anonymousId (1 per device) to
 the user that is logged in.
 
 ### API
 
-Use the `/identify` endpoint. Docs:			https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/identify
+Use the `/identify` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/identify
 
 ### Data
 
 #### Signed in users
+
 `userId`: Accessible from GQL under `me` endpoint
 
 `traits`
 
-| Data | Name | Comments |
-|------|------|----------|
-| Unique user ID | `id` | Same as the `userId` |
-| Users exact age | `age` | Currently not used. Need to figure out how to guarantee anonymity |
-| Age Group | `ageGroup` | See Age group List below |
-| Country | `country` | Two letter country code |
-| Church ID | `church` | Numerical church ID as STRING |
-| Gender | `gender` | male or female |
+| Data            | Name       | Comments                                                          |
+| --------------- | ---------- | ----------------------------------------------------------------- |
+| Unique user ID  | `id`       | Same as the `userId`                                              |
+| Users exact age | `age`      | Currently not used. Need to figure out how to guarantee anonymity |
+| Age Group       | `ageGroup` | See Age group List below                                          |
+| Country         | `country`  | Two letter country code                                           |
+| Church ID       | `church`   | Numerical church ID as STRING                                     |
+| Gender          | `gender`   | male or female                                                    |
 
 #### Age groups
 
 Please use the exact strings below:
 
- * UNKNOWN
- * < 10
- * 10 - 12
- * 13 - 18
- * 19 - 25
- * 26 - 36
- * 37 - 50
- * 51 - 64
- * 65+
+- UNKNOWN
+- < 10
+- 10 - 12
+- 13 - 18
+- 19 - 25
+- 26 - 36
+- 37 - 50
+- 51 - 64
+- 65+
 
 #### Anonymous users
+
 Calling identify for anonymous users isn't necessary unless we want to give them traits, but we don't need this for now.
 
 ## Screen/Page View
 
-*When*: On every page/screen the user opens. If relevant also on popups and tabs
+_When_: On every page/screen the user opens. If relevant also on popups and tabs
 if they can be considered a separate screen (for example Participate tab on live).
 
-*Reason*: It will allow us to see how used the various pages are and estimate how
+_Reason_: It will allow us to see how used the various pages are and estimate how
 much time users spend on various screens.
 
 ### API
@@ -116,32 +118,32 @@ Use the `/screen` endpoint in app. Docs: https://docs.rudderstack.com/rudderstac
 The rest of the relevant additional data is automatically collected by the SDK on web. App does not
 deliver additional data.
 
-| Data         | Name        | Comments                                       |
-|--------------|-------------|------------------------------------------------|
-| ID | Id | Code of the page if generated or from the list below. String |
-| Title | title | String, native language |
-| Additional info | meta | JSON. Currently unused, but fields can be added as needed |
+| Data            | Name  | Comments                                                     |
+| --------------- | ----- | ------------------------------------------------------------ |
+| ID              | Id    | Code of the page if generated or from the list below. String |
+| Title           | title | String, native language                                      |
+| Additional info | meta  | JSON. Currently unused, but fields can be added as needed    |
 
 ### Page/Screen IDs
 
-* about
-* calendar
-* livestream
-* login
-* profileEdit
-* profile
-* search
-* settings
-* support
-* faq
-* episode
+- about
+- calendar
+- livestream
+- login
+- profileEdit
+- profile
+- search
+- settings
+- support
+- faq
+- episode
 
 ## Section click (section_clicked)
 
-*When*: On every tap/click on a section element. This is on all sections, regardless
+_When_: On every tap/click on a section element. This is on all sections, regardless
 of where they may appear
 
-*Reason*: This will allow us to asses how effective the sections are, as well as
+_Reason_: This will allow us to asses how effective the sections are, as well as
 possible debug purposes
 
 ### API
@@ -151,7 +153,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 ### Data
 
 | Data             | Name            | Comments                                      |
-|------------------|-----------------|-----------------------------------------------|
+| ---------------- | --------------- | --------------------------------------------- |
 | Event ID         | event           | Hardcoded: `section_clicked`                  |
 | Section ID       | sectionId       | ID of the section that the element belongs to |
 | Section Name     | sectionName     | For easier identification in tools            |
@@ -160,13 +162,14 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Element Position | elementPosition | int, position in the section's list of items  |
 | Element Type     | elementType     | episode, series, category,                    |
 | Element ID       | elementId       | id of the clicked element                     |
+| Element Name     | elementName     | localized name of the element                 |
 | Page Code        | pageCode        | same ID as for page/screen tracking           |
 
 ## Audio Only (audioonly_clicked)
 
-*When*: User clicks/taps the audio only button
+_When_: User clicks/taps the audio only button
 
-*Reason*: Measure usage for the button
+_Reason_: Measure usage for the button
 
 ### API
 
@@ -174,16 +177,16 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data        | Name             | Comments                     |
-|-------------|------------------|------------------------------|
-| Event ID    | event            | Hardcoded: `audioonly_clicked`    |
-| Audio only enabled | audioOnly | Audio only state *after* tap. true or false      |
+| Data               | Name      | Comments                                    |
+| ------------------ | --------- | ------------------------------------------- |
+| Event ID           | event     | Hardcoded: `audioonly_clicked`              |
+| Audio only enabled | audioOnly | Audio only state _after_ tap. true or false |
 
 ## Calendar day click (calendarday_clicked)
 
-*When*: When user taps/clicks a day in the calendar to see transmission list.
+_When_: When user taps/clicks a day in the calendar to see transmission list.
 
-*Reason*: Assessing usage, spotting problems (taps on things that don't lead anywhere)
+_Reason_: Assessing usage, spotting problems (taps on things that don't lead anywhere)
 
 ### API
 
@@ -191,18 +194,18 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data          | Name         | Comments                                      |
-|---------------|--------------|-----------------------------------------------|
-| Event ID      | event        | Hardcoded: `calendarday_clicked`                 |
-| Page Name     | pageName     | same ID as for page/screen tracking           |
-| Calendar view | calendarView | `week` or `month`                             |
-| Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
+| Data          | Name         | Comments                            |
+| ------------- | ------------ | ----------------------------------- |
+| Event ID      | event        | Hardcoded: `calendarday_clicked`    |
+| Page Name     | pageName     | same ID as for page/screen tracking |
+| Calendar view | calendarView | `week` or `month`                   |
+| Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)               |
 
 ## Calendar click (calendarentry_clicked)
 
-*When*: When user taps/clicks an element in the calendar
+_When_: When user taps/clicks an element in the calendar
 
-*Reason*: Assessing usage, spotting problems (taps on things that don't lead anywhere)
+_Reason_: Assessing usage, spotting problems (taps on things that don't lead anywhere)
 
 ### API
 
@@ -211,8 +214,8 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 ### Data
 
 | Data          | Name         | Comments                                      |
-|---------------|--------------|-----------------------------------------------|
-| Event ID      | event        | Hardcoded: `calendarentry_clicked`                 |
+| ------------- | ------------ | --------------------------------------------- |
+| Event ID      | event        | Hardcoded: `calendarentry_clicked`            |
 | Page Name     | pageName     | same ID as for page/screen tracking           |
 | Calendar view | calendarView | `week` or `month`                             |
 | Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
@@ -220,9 +223,9 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ## Search (search_performed)
 
-*When*: When user performs a search
+_When_: When user performs a search
 
-*Reason*: Spotting issues, Usage info
+_Reason_: Spotting issues, Usage info
 
 ### API
 
@@ -231,18 +234,17 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 ### Data
 
 | Data           | Name              | Comments                                           |
-|----------------|-------------------|----------------------------------------------------|
+| -------------- | ----------------- | -------------------------------------------------- |
 | Event ID       | event             | Hardcoded: `search_performed`                      |
 | Search Term    | searchText        | exact search term                                  |
 | Search Latency | searchLatency     | how long did the search take in milliseconds (int) |
 | Result Count   | searchResultCount |                                                    |
 
-
 ## Search Result click (searchresult_clicked)
 
-*When*: When user clicks/taps on a search result
+_When_: When user clicks/taps on a search result
 
-*Reason*: Spotting issues, Usage info
+_Reason_: Spotting issues, Usage info
 
 ### API
 
@@ -251,7 +253,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 ### Data
 
 | Data            | Name                 | Comments                           |
-|-----------------|----------------------|------------------------------------|
+| --------------- | -------------------- | ---------------------------------- |
 | Event ID        | event                | Hardcoded: `search_result_clicked` |
 | Search Term     | searchText           | exact search term                  |
 | Result Position | searchResultPosition | how long did the search take       |
@@ -260,11 +262,11 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ## Language Change (language_changed)
 
-*When*: When user changes the language in any context
+_When_: When user changes the language in any context
 
-*Reason*: Spotting issues, Usage info
+_Reason_: Spotting issues, Usage info
 
-*Notes*: This is not high priority, if hard to get, can be omitted
+_Notes_: This is not high priority, if hard to get, can be omitted
 
 ### API
 
@@ -273,7 +275,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 ### Data
 
 | Data          | Name               | Comments                            |
-|---------------|--------------------|-------------------------------------|
+| ------------- | ------------------ | ----------------------------------- |
 | Event ID      | event              | Hardcoded: `language_changed`       |
 | Page Name     | pageName           | same ID as for page/screen tracking |
 | From Language | languageFrom       |                                     |
@@ -282,12 +284,12 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ## Open (applicaion_opened)
 
-*When*: When the applications is forgrounded. This may occur because the user tapped the app (icon) or
+_When_: When the applications is forgrounded. This may occur because the user tapped the app (icon) or
 for a number of other reasons, such as tapping a deep link or notification.
 
-*Reason*: Usage info
+_Reason_: Usage info
 
-*Notes*: If possible to differentiate the reason it would be nice but that can be omitted if not technically feasible.
+_Notes_: If possible to differentiate the reason it would be nice but that can be omitted if not technically feasible.
 
 ### API
 
@@ -295,23 +297,23 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data   | Name   | Comments                             |
-|--------|--------|--------------------------------------|
-| Reason | reason | For example, notification, link, ... |
+| Data       | Name      | Comments                                                                              |
+| ---------- | --------- | ------------------------------------------------------------------------------------- |
+| Reason     | reason    | For example, notification, link, ...                                                  |
 | Cold Start | coldStart | `true` if the application was not running before (user started it). Otherwise `false` |
 
 ## Deep link (deep_link_opened)
 
-*When*: When the applications processes a deep link
+_When_: When the applications processes a deep link
 
-*Reason*: Usage info, campaign tracking
+_Reason_: Usage info, campaign tracking
 
-*Notes*:
+_Notes_:
 
 Some parameters should be extracted from the url if present:
 
 | URL Parameter | Comment                                                      |
-|---------------|--------------------------------------------------------------|
+| ------------- | ------------------------------------------------------------ |
 | cid           | This is for tracking a campaign ID                           |
 | cs            | This is for tracking the source for example ig for instagram |
 
@@ -324,16 +326,16 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 ### Data
 
 | Data        | Name       | Comments                            |
-|-------------|------------|-------------------------------------|
+| ----------- | ---------- | ----------------------------------- |
 | URL         | url        | Full deep link                      |
 | Source      | source     | cs parameter as described in notes  |
 | Campaign ID | campaignId | cid parameter as described in notes |
 
 ## Share (share_clicked)
 
-*When*: When user shares content via the share menu
+_When_: When user shares content via the share menu
 
-*Reason*: Spotting issues, Usage info
+_Reason_: Spotting issues, Usage info
 
 ### API
 
@@ -341,13 +343,13 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data          | Name               | Comments                            |
-|---------------|--------------------|-------------------------------------|
-| Event ID      | event              | Hardcoded: `content_shared`         |
-| Page Name     | pageName           | same ID as for page/screen tracking |
-| Element Type  | elementType        | episode, series, ...                |
-| Element ID    | elementId          | series, episode ID                  |
-| position    | position          | playback position in **seconds**. `null` if shared without time          |
+| Data         | Name        | Comments                                                        |
+| ------------ | ----------- | --------------------------------------------------------------- |
+| Event ID     | event       | Hardcoded: `content_shared`                                     |
+| Page Name    | pageName    | same ID as for page/screen tracking                             |
+| Element Type | elementType | episode, series, ...                                            |
+| Element ID   | elementId   | series, episode ID                                              |
+| position     | position    | playback position in **seconds**. `null` if shared without time |
 
 ## Other Tracking events
 
@@ -355,7 +357,7 @@ This tracking events do not have data besides the common fields. The list contai
 the `EventID` values to be used
 
 | Event              | Event ID           |
-|--------------------|--------------------|
+| ------------------ | ------------------ |
 | Log In             | login              |
 | Log Out            | logout             |
 | Airplay started    | airplay_started    |
@@ -370,23 +372,23 @@ The video events should, in addition to the common data, also contain the follow
 The names are specified by Rudderstack and are inconsistent with the rest of the
 document. They should be used as they are here (camelCase).
 
-| Data            | Name               | Comments                                                                                                     |
-|-----------------|--------------------|--------------------------------------------------------------------------------------------------------------|
-| Session ID      | sessionId         | regenerate after 30 minutes of not being used                                                                |
-| Is Live         | livestream         | true/false                                                                                                   |
-| Content ID      | contentPodId     | string                                                                                                             |
-| Content Type    | contentPodType     | episode, program                                                                                             |
-| Positing        | position           | From start of video in seconds                                                                               |
-| Total Length    | totalLength       | null if live stream                                                                                          |
-| Video Player    | videoPlayer       | Name of the player (VideoJS, ...)                                                                            |
-| Is Full screen? | fullScreen        |                                                                                                              |
-| Quality         | quality            | if available                                                                                                 |
-| Volume          | volume             | in %                                                                                                         |
-| Has video       | hasVideo          | false if in "audio only mode"                                                                                |
-| Subs            | subtitlesLanguage | null if not possible to determine. "OFF" if turned off. "N/A" if subs are not available in selected language |
-| Audio           | audioLanguage     | null if not possible to determine. "N/A" if audio is not available in selected language |
-| Is Chromecasting | isChromecasting  | true/false. null if not possible to determine.                       |
-| Is Airplaying    | isAirPlay        | true/false. null if not possible to determine.                       |
+| Data             | Name              | Comments                                                                                                     |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------------------------------------ |
+| Session ID       | sessionId         | regenerate after 30 minutes of not being used                                                                |
+| Is Live          | livestream        | true/false                                                                                                   |
+| Content ID       | contentPodId      | string                                                                                                       |
+| Content Type     | contentPodType    | episode, program                                                                                             |
+| Positing         | position          | From start of video in seconds                                                                               |
+| Total Length     | totalLength       | null if live stream                                                                                          |
+| Video Player     | videoPlayer       | Name of the player (VideoJS, ...)                                                                            |
+| Is Full screen?  | fullScreen        |                                                                                                              |
+| Quality          | quality           | if available                                                                                                 |
+| Volume           | volume            | in %                                                                                                         |
+| Has video        | hasVideo          | false if in "audio only mode"                                                                                |
+| Subs             | subtitlesLanguage | null if not possible to determine. "OFF" if turned off. "N/A" if subs are not available in selected language |
+| Audio            | audioLanguage     | null if not possible to determine. "N/A" if audio is not available in selected language                      |
+| Is Chromecasting | isChromecasting   | true/false. null if not possible to determine.                                                               |
+| Is Airplaying    | isAirPlay         | true/false. null if not possible to determine.                                                               |
 
 ## API
 
@@ -397,7 +399,7 @@ Use the `/track` API as described here: https://docs.rudderstack.com/rudderstack
 This events contain no extra data
 
 | Event                 | Event ID                   |
-|-----------------------|----------------------------|
+| --------------------- | -------------------------- |
 | Playback started      | playback_started           |
 | Playback paused       | playback_paused            |
 | Playback end          | playback_ended             |
@@ -409,9 +411,9 @@ This events contain no extra data
 ### Data
 
 | Data                 | Name       | Comments                   |
-|----------------------|------------|----------------------------|
+| -------------------- | ---------- | -------------------------- |
 | Event ID             | eventID    | `playback_buffering_ended` |
-| Time spent Buffering | bufferTime |  in seconds                |
+| Time spent Buffering | bufferTime | in seconds                 |
 
 ## Seek End (playback_seeking_ended)
 
@@ -419,11 +421,11 @@ This events contain no extra data
 
 ### Data
 
-| Data          | Name              | Comments                             |
-|---------------|-------------------|--------------------------------------|
-| Event ID      | eventID           | `playback_seeking_ended`                |
-| Seek start    | seekStartPosition | offset in seconds                    |
-| Seek time     | seekTime          | in seconds, including buffering time |
+| Data       | Name              | Comments                             |
+| ---------- | ----------------- | ------------------------------------ |
+| Event ID   | eventID           | `playback_seeking_ended`             |
+| Seek start | seekStartPosition | offset in seconds                    |
+| Seek time  | seekTime          | in seconds, including buffering time |
 
 ## Playback playing (playback_playing)
 
@@ -433,17 +435,16 @@ More info https://developer.apple.com/documentation/avfoundation/avplayeritemacc
 
 ### Data
 
-| Data                                | Name                             | Commnets             |
-|-------------------------------------|----------------------------------|----------------------|
-| Event ID                            | eventID                          | `playback_playing`   |
-| Average audio bitrate               | averageAudioBitrate              |                      |
-| Average video bitrate               | averageVideoBitrate              |                      |
-| Indicated average bitrate           | indicatedAverageBitrate          |                      |
-| Indicated bitrate                   | indicatedBitrate                 |                      |
-| Observed bitrate                    | observedBitrate                  |                      |
-| Observed bitrate standard deviation | observedBitrateStandardDeviation |                      |
-| Switch bitrate                      | switchBitrate                    |                      |
-
+| Data                                | Name                             | Commnets           |
+| ----------------------------------- | -------------------------------- | ------------------ |
+| Event ID                            | eventID                          | `playback_playing` |
+| Average audio bitrate               | averageAudioBitrate              |                    |
+| Average video bitrate               | averageVideoBitrate              |                    |
+| Indicated average bitrate           | indicatedAverageBitrate          |                    |
+| Indicated bitrate                   | indicatedBitrate                 |                    |
+| Observed bitrate                    | observedBitrate                  |                    |
+| Observed bitrate standard deviation | observedBitrateStandardDeviation |                    |
+| Switch bitrate                      | switchBitrate                    |                    |
 
 ## Notification received (notification_received)
 
@@ -452,12 +453,12 @@ It doesn't occur for tvOS where notifications are open immediately or stored by 
 
 ### Data
 
-| Data               | Name                        | Commnets                 |
-|--------------------|-----------------------------|--------------------------|
-| Event ID           | eventID                     | `notification_received`   |
-| Notification id    | notificationId              | for tracking purposes    |
-| action         | action         | `deep_link`, `clear_cache`, null  |
-| deeplink         | string         |   if action is `deep_link`  |
+| Data            | Name           | Commnets                         |
+| --------------- | -------------- | -------------------------------- |
+| Event ID        | eventID        | `notification_received`          |
+| Notification id | notificationId | for tracking purposes            |
+| action          | action         | `deep_link`, `clear_cache`, null |
+| deeplink        | string         | if action is `deep_link`         |
 
 ## Notification received (notification_open)
 
@@ -466,8 +467,7 @@ It doesn't occur for headless notifications that execute in background without u
 
 ### Data
 
-| Data               | Name                        | Commnets                 |
-|--------------------|-----------------------------|--------------------------|
-| Event ID           | eventID                     | `notification_open`      |
-| Notification id    | notificationId              | for tracking purposes    |
-
+| Data            | Name           | Commnets              |
+| --------------- | -------------- | --------------------- |
+| Event ID        | eventID        | `notification_open`   |
+| Notification id | notificationId | for tracking purposes |
