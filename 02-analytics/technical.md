@@ -89,10 +89,10 @@ Please use the exact strings below:
  * < 10
  * 10 - 12
  * 13 - 18
- * 19 - 26
+ * 19 - 25
  * 26 - 36
  * 37 - 50
- * 51 - 65
+ * 51 - 64
  * 65+
 
 #### Anonymous users
