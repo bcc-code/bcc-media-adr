@@ -197,7 +197,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Data        | Name             | Comments                     |
 |-------------|------------------|------------------------------|
 | Event ID    | event            | Hardcoded: `audioonly_clicked`    |
-| Video state | videoStateTarget | Video state *after* tap      |
+| Audio only enabled | audioOnly | Audio only state *after* tap. true or false      |
 
 ## Calendar day click (calendarday_clicked)
 
