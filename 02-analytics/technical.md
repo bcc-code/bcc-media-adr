@@ -160,6 +160,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Element Position | elementPosition | int, position in the section's list of items  |
 | Element Type     | elementType     | episode, series, category,                    |
 | Element ID       | elementId       | id of the clicked element                     |
+| Element Name     | elementName     | localized name of the clicked element         |
 | Page Code        | pageCode        | same ID as for page/screen tracking           |
 
 ## Audio Only (audioonly_clicked)
