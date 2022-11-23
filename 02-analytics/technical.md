@@ -35,17 +35,17 @@ platform and not on the other.
 
 | Data                | Name           | Comments                                                                                      |
 |---------------------|----------------|-----------------------------------------------------------------------------------------------|
-| OS                  | os             | `DeviceInfo.Platform`                                                                         |
-| OS Locale           | locale         | `CultureInfo.CurrentUICulture.TextInfo`                                                       |
+| OS                  | _os_             | SDK automatically adds this. **Not the currently selected app-language.** See `appLanguage`  |
+| OS Locale           | _locale_         | SDK automatically adds.                                                                     |
+| Device Info         | _deviceInfo_     | SDK automatically adds.                                                                      |
+| Anonymous ID        | _anonymousId_    | SDK automatically adds.                                                                     |
+| Timezone            | _timezone_       | SDK automatically adds.                                                                     |
+| Screen data         | _screen_         | SDK automatically adds.                                                                     |
+| Analytics ID.       | _userId_       | SDK adds after identify. For logged in users, see below.                                      |
 | Online              | wasOnline      | `true` if the device was online at the tracking time                                          |
-| Device Info         | deviceInfo     | `DeviceInfo` as json                                                                          |
-| Anonymous ID        | anonymousId    | `SetAnonymousId(Guid.NewGuid().ToString())`. If changed a new call to `identify` must be made |
 | Channel             | channel        | `mobile`/`web`/`tv`                                                                           |
-| Timezone            | timezone       | `new DateTimeOffset(DateTime.Now).Offset`                                                     |
-| Screen data         | screen         | `DeviceDisplay.MainDisplayInfo` as json                                                       |
-| App Language        | appLanguage    |                                                                                               |
+| App Language        | appLanguage    | The currently selected language which can be changed via settings.                            |
 | Release Version     | releaseVersion | App version, or build number/git hash for web                                                 |
-| Analytics ID.       | userId       | For logged in users, see below                                                                |
 
 ### Person analytics ID
 
