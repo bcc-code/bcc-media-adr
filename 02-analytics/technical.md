@@ -489,7 +489,7 @@ It doesn't occur for tvOS where notifications are open immediately or stored by 
 | action         | action         | `deep_link`, `clear_cache`, null  |
 | deeplink         | string         |   if action is `deep_link`  |
 
-## Notification received (notification_open)
+## Notification received (notification_opened)
 
 Event occurs when notification is opened by the user.
 It doesn't occur for headless notifications that execute in background without user interaction like commands.
