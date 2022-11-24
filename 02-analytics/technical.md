@@ -118,8 +118,9 @@ deliver additional data.
 
 | Data         | Name        | Comments                                       |
 |--------------|-------------|------------------------------------------------|
-| ID | Id | Code of the page if generated or from the list below. String |
+| ID | Id | Code of the page if dynamic or from the list below. String |
 | Title | title | String, native language |
+| Dynamic page code | pageCode | if the page has a a related dynamic (backend-driven) page (e.g. `btv-search` for `search` page) |
 | Additional info | meta | JSON. See below for `settings` example, but fields can be added as needed |
 
 ### Page/Screen IDs
@@ -305,7 +306,6 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Data          | Name               | Comments                            |
 |---------------|--------------------|-------------------------------------|
 | Event ID      | event              | Hardcoded: `language_changed`       |
-| Page Name     | pageName           | same ID as for page/screen tracking |
 | From Language | languageFrom       |                                     |
 | To Language   | languageTo         |                                     |
 | Where         | languageChangeType | audio, app, subs                    |
