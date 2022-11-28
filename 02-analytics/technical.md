@@ -359,7 +359,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Source      | source     | cs parameter as described in notes  |
 | Campaign ID | campaignId | cid parameter as described in notes |
 
-## Share (share_clicked)
+## Share (content_shared)
 
 *When*: When user shares content via the share menu
 
@@ -373,7 +373,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data          | Name               | Comments                            |
 |---------------|--------------------|-------------------------------------|
-| Event ID      | event              | Hardcoded: `share_clicked`         |
+| Event ID      | event              | Hardcoded: `content_shared`         |
 | Page Name     | pageCode           | same ID as for page/screen tracking |
 | Element Type  | elementType        | episode, series, ...                |
 | Element ID    | elementId          | series, episode ID                  |
