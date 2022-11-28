@@ -225,7 +225,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Data          | Name         | Comments                                      |
 |---------------|--------------|-----------------------------------------------|
 | Event ID      | event        | Hardcoded: `calendarday_clicked`                 |
-| Page Name     | pageName     | same ID as for page/screen tracking           |
+| Page Name     | pageCode     | same ID as for page/screen tracking           |
 | Calendar view | calendarView | `week` or `month`                             |
 | Calendar date | calendarDate | ISO-8601 (YYYY-MM-DD)                         |
 
@@ -373,8 +373,8 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data          | Name               | Comments                            |
 |---------------|--------------------|-------------------------------------|
-| Event ID      | event              | Hardcoded: `content_shared`         |
-| Page Name     | pageName           | same ID as for page/screen tracking |
+| Event ID      | event              | Hardcoded: `share_clicked`         |
+| Page Name     | pageCode           | same ID as for page/screen tracking |
 | Element Type  | elementType        | episode, series, ...                |
 | Element ID    | elementId          | series, episode ID                  |
 | position    | position          | playback position in **seconds**. `null` if shared without time          |
