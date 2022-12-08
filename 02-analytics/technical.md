@@ -288,6 +288,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Element Position | elementPosition 	 | position in the list               |
 | Element Type    | elementType          | episode, series, ...               |
 | Element ID      | elementId            | series, episode ID                 |
+| Group           | group                | "shows" or "episodes" currently    |
 
 ## Language Change (language_changed)
 
