@@ -311,9 +311,9 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | To Language   | languageTo         |                                     |
 | Where         | languageChangeType | audio, app, subs                    |
 
-## Open (applicaion_opened)
+## Open (application_opened)
 
-*When*: When the applications is forgrounded. This may occur because the user tapped the app (icon) or
+*When*: When the application is forgrounded. This may occur because the user tapped the app (icon) or
 for a number of other reasons, such as tapping a deep link or notification.
 
 *Reason*: Usage info
@@ -326,18 +326,19 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 ### Data
 
-| Data   | Name   | Comments                             |
-|--------|--------|--------------------------------------|
-| Reason | reason | Describes how application was opened. Possible values: Default, Notification, Link |
+| Data       | Name      | Comments                             |
+|------------|-----------|--------------------------------------|
+| Event ID   | event     | Hardcoded: `application_opened`       |
+| Reason     | reason    | Describes how application was opened. Possible values: Default, Notification, Link |
 | Cold Start | coldStart | `true` if the application was not running before (user started it). Otherwise `false` |
 
 ## Deep link (deep_link_opened)
 
-*When*: When the applications processes a deep link
+*When*: When the application processes a deep link
 
 *Reason*: Usage info, campaign tracking
 
-*Notes*:
+*Notes*: Not applicable for tvOS
 
 Some parameters should be extracted from the url if present:
 
@@ -356,6 +357,7 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 
 | Data        | Name       | Comments                            |
 |-------------|------------|-------------------------------------|
+| Event ID    | event      | Hardcoded: `deep_link_opened`       |
 | URL         | url        | Full deep link                      |
 | Source      | source     | cs parameter as described in notes  |
 | Campaign ID | campaignId | cid parameter as described in notes |
