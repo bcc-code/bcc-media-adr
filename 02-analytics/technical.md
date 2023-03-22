@@ -129,6 +129,7 @@ deliver additional data.
 * calendar
 * livestream
 * login
+* signup
 * profileEdit
 * profile
 * search
@@ -381,6 +382,32 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Element Type  | elementType        | episode, series, ...                |
 | Element ID    | elementId          | series, episode ID                  |
 | position    | position          | playback position in **seconds**. `null` if shared without time          |
+
+
+## Social auth clicked (social_auth_clicked)
+
+*When*: When user clicks a social auth button
+*Reason*: Spotting issues, Usage info
+
+### Data
+
+| Data          | Name               | Comments                            |
+|---------------|--------------------|-------------------------------------|
+| Page Name     | pageCode           | same ID as for page/screen tracking |
+| Auth connection | connection       | google, facebook, apple, bcc        |
+
+
+## Sign up "register" button clicked (signup_submitted)
+
+*When*: When user finishes the sign up form by clicking "register"
+*Reason*: Spotting issues, Usage info
+
+### Data
+
+| Data          | Name               | Comments                            |
+|---------------|--------------------|-------------------------------------|
+| Page Name     | pageCode           | same ID as for page/screen tracking |
+
 
 ## Other Tracking events
 
