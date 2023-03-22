@@ -137,6 +137,12 @@ deliver additional data.
 * support
 * faq
 * episode
+* signup
+  * signup-email
+  * signup-password
+  * signup-name
+  * signup-birthdate
+  * signup-done
 
 ### Additional info
 
