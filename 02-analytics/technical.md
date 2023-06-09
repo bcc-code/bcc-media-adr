@@ -548,4 +548,4 @@ Collected when a game is closed for any reason.
 | Data               | Name                        | Commnets                 |
 |--------------------|-----------------------------|--------------------------|
 | Game ID            | gameId                      | per-game stats           |
-| Time spent         | timeSpent                   | measure usage            |
+| Time spent         | timeSpent                   | seconds. measure usage    |
