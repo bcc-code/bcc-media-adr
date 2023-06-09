@@ -537,3 +537,15 @@ It doesn't occur for headless notifications that execute in background without u
 | Event ID           | eventID                     | `notification_open`      |
 | Notification id    | notificationId              | for tracking purposes    |
 
+
+
+## Game closed (game_closed)
+
+Collected when a game is closed for any reason.
+
+### Data
+
+| Data               | Name                        | Commnets                 |
+|--------------------|-----------------------------|--------------------------|
+| Game ID            | gameId                      | per-game stats           |
+| Time spent         | timeSpent                   | measure usage            |
