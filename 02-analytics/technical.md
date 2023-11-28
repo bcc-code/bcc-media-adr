@@ -549,3 +549,19 @@ Collected when a game is closed for any reason.
 |--------------------|-----------------------------|--------------------------|
 | Game ID            | gameId                      | per-game stats           |
 | Time spent         | timeSpent                   | seconds. measure usage    |
+
+
+
+## Interaction event (interaction)
+
+Generic interaction events, e.g. button clicks that doesnt need its own table
+
+### Data
+
+| Data               | Name                        | Commnets                 |
+|--------------------|-----------------------------|--------------------------|
+| Interaction        | interaction                 | 'play', 'pause', 'share', 'like', 'mute', etc.  |
+| Page code            | pageCode                   |  static ('shorts', 'episode') or dynamic ('kids-frontpage2', etc.)    |
+| Context Element Id           | contextElementId      |  ID of e.g. the episode or short this was performed on.   |
+| Context Element Type         | contextElementType    | type for the ID above, e.g. 'episode', 'shorts', 'show', etc.    |
+
