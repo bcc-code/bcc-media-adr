@@ -560,3 +560,17 @@ E.g. are any users swiping horizontally where you can't (shorts), or do any user
 | Context Element Id   | contextElementId   | ID of e.g. the episode or short this was performed on.            |
 | Context Element Type | contextElementType | type for the ID above, e.g. 'episode', 'short', 'show', etc.      |
 | Additional info      | meta               | Arbitrary extra json meta.                                        |
+
+## Impression event (impression)
+
+_When_: When a feature is shown on the screen.
+
+_Reason_: In order to understand how often new features are used, we need to be able to know how often users see the feature. For instance, if we launch a new "skip to chapter" button, it will only show up in certain scenarios (first 20 seconds, video needs to have chapters, etc). This event helps us analyze more effectively.
+
+| Data                 | Name               | Commnets                                                           |
+| -------------------- | ------------------ | ------------------------------------------------------------------ |
+| Impression           | impression         | skip_to_chapter, etc                                               |
+| Page code            | pageCode           | static ('shorts', 'episode') or dynamic ('kids-frontpage2', etc.)  |
+| Context Element Id   | contextElementId   | ID of e.g. the episode or short this was performed on.             |
+| Context Element Type | contextElementType | type for the ID above, e.g. 'episode', 'short', 'show', etc.       |
+| Additional info      | meta               | Arbitrary extra json meta.                                         |
