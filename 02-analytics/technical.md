@@ -496,7 +496,7 @@ More info https://developer.apple.com/documentation/avfoundation/avplayeritemacc
 
 ### Data
 
-| Data                                | Name                             | Commnets           |
+| Data                                | Name                             | Comments           |
 | ----------------------------------- | -------------------------------- | ------------------ |
 | Event ID                            | eventID                          | `playback_playing` |
 | Average audio bitrate               | averageAudioBitrate              |                    |
@@ -514,7 +514,7 @@ It doesn't occur for tvOS where notifications are open immediately or stored by 
 
 ### Data
 
-| Data            | Name           | Commnets                         |
+| Data            | Name           | Comments                         |
 | --------------- | -------------- | -------------------------------- |
 | Event ID        | eventID        | `notification_received`          |
 | Notification id | notificationId | for tracking purposes            |
@@ -528,7 +528,7 @@ It doesn't occur for headless notifications that execute in background without u
 
 ### Data
 
-| Data            | Name           | Commnets              |
+| Data            | Name           | Comments              |
 | --------------- | -------------- | --------------------- |
 | Event ID        | eventID        | `notification_open`   |
 | Notification id | notificationId | for tracking purposes |
@@ -539,7 +539,7 @@ Collected when a game is closed for any reason.
 
 ### Data
 
-| Data       | Name      | Commnets               |
+| Data       | Name      | Comments               |
 | ---------- | --------- | ---------------------- |
 | Game ID    | gameId    | per-game stats         |
 | Time spent | timeSpent | seconds. measure usage |
@@ -553,7 +553,7 @@ E.g. are any users swiping horizontally where you can't (shorts), or do any user
 
 ### Data
 
-| Data                 | Name               | Commnets                                                          |
+| Data                 | Name               | Comments                                                          |
 | -------------------- | ------------------ | ----------------------------------------------------------------- |
 | Interaction          | interaction        | 'play', 'pause', 'share', 'like', 'mute', etc.                    |
 | Page code            | pageCode           | static ('shorts', 'episode') or dynamic ('kids-frontpage2', etc.) |
@@ -567,10 +567,10 @@ _When_: When a feature is shown on the screen.
 
 _Reason_: In order to understand how often new features are used, we need to be able to know how often users see the feature. For instance, if we launch a new "skip to chapter" button, it will only show up in certain scenarios (first 20 seconds, video needs to have chapters, etc). This event helps us analyze more effectively.
 
-| Data                 | Name               | Commnets                                                           |
-| -------------------- | ------------------ | ------------------------------------------------------------------ |
-| Impression           | impression         | skip_to_chapter, etc                                               |
-| Page code            | pageCode           | static ('shorts', 'episode') or dynamic ('kids-frontpage2', etc.)  |
-| Context Element Id   | contextElementId   | ID of e.g. the episode or short this was performed on.             |
-| Context Element Type | contextElementType | type for the ID above, e.g. 'episode', 'short', 'show', etc.       |
-| Additional info      | meta               | Arbitrary extra json meta.                                         |
+| Data                 | Name               | Comments                                                          |
+| -------------------- | ------------------ | ----------------------------------------------------------------- |
+| Impression           | impression         | skip_to_first_relevant_chapter, etc                               |
+| Page code            | pageCode           | static ('shorts', 'episode') or dynamic ('kids-frontpage2', etc.) |
+| Context Element Id   | contextElementId   | ID of e.g. the episode or short this was performed on.            |
+| Context Element Type | contextElementType | type for the ID above, e.g. 'episode', 'short', 'show', etc.      |
+| Additional info      | meta               | Arbitrary extra json meta.                                        |
