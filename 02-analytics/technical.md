@@ -318,27 +318,6 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | To Language   | languageTo         |                               |
 | Where         | languageChangeType | audio, app, subs              |
 
-## Open (application_opened)
-
-_When_: When the application is forgrounded. This may occur because the user tapped the app (icon) or
-for a number of other reasons, such as tapping a deep link or notification.
-
-_Reason_: Usage info
-
-_Notes_: On tvOS there is only reason Default as links and notifications are not handled.
-
-### API
-
-Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-specification/rudderstack-spec/track
-
-### Data
-
-| Data       | Name      | Comments                                                                              |
-| ---------- | --------- | ------------------------------------------------------------------------------------- |
-| Event ID   | event     | Hardcoded: `application_opened`                                                       |
-| Reason     | reason    | Describes how application was opened. Possible values: Default, Notification, Link    |
-| Cold Start | coldStart | `true` if the application was not running before (user started it). Otherwise `false` |
-
 ## Deep link (deep_link_opened)
 
 _When_: When the application processes a deep link
