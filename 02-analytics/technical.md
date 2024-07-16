@@ -556,3 +556,4 @@ Generic interaction events, e.g. button clicks that doesnt need its own table
 | Page code            | pageCode           | static ('shorts', 'episode') or dynamic ('kids-frontpage2', etc.) |
 | Context Element Id   | contextElementId   | ID of e.g. the episode or short this was performed on.            |
 | Context Element Type | contextElementType | type for the ID above, e.g. 'episode', 'short', 'show', etc.      |
+| Additional info      | meta               | Arbitrary extra json meta.                                        |
