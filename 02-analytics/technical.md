@@ -368,29 +368,6 @@ Use `/track` endpoint. Docs: https://docs.rudderstack.com/rudderstack-api/api-sp
 | Element ID   | elementId   | series, episode ID                                              |
 | position     | position    | playback position in **seconds**. `null` if shared without time |
 
-## Social auth clicked (social_auth_clicked)
-
-_When_: When user clicks a social auth button
-_Reason_: Spotting issues, Usage info
-
-### Data
-
-| Data            | Name       | Comments                            |
-| --------------- | ---------- | ----------------------------------- |
-| Page Name       | pageCode   | same ID as for page/screen tracking |
-| Auth connection | connection | google, facebook, apple, bcc        |
-
-## Sign up "register" button clicked (signup_submitted)
-
-_When_: When user finishes the sign up form by clicking "register"
-_Reason_: Spotting issues, Usage info
-
-### Data
-
-| Data      | Name     | Comments                            |
-| --------- | -------- | ----------------------------------- |
-| Page Name | pageCode | same ID as for page/screen tracking |
-
 ## Other Tracking events
 
 This tracking events do not have data besides the common fields. The list contains
@@ -402,32 +379,6 @@ the `EventID` values to be used
 | Log Out            | logout             |
 | Airplay started    | airplay_started    |
 | ChromeCast started | chromecast_started |
-
-## Notification received (notification_received)
-
-Event occurs when notification is received on device.
-It doesn't occur for tvOS where notifications are open immediately or stored by operating system.
-
-### Data
-
-| Data            | Name           | Comments                         |
-| --------------- | -------------- | -------------------------------- |
-| Event ID        | eventID        | `notification_received`          |
-| Notification id | notificationId | for tracking purposes            |
-| action          | action         | `deep_link`, `clear_cache`, null |
-| deeplink        | string         | if action is `deep_link`         |
-
-## Notification received (notification_opened)
-
-Event occurs when notification is opened by the user.
-It doesn't occur for headless notifications that execute in background without user interaction like commands.
-
-### Data
-
-| Data            | Name           | Comments              |
-| --------------- | -------------- | --------------------- |
-| Event ID        | eventID        | `notification_open`   |
-| Notification id | notificationId | for tracking purposes |
 
 ## Game closed (game_closed)
 
@@ -470,3 +421,58 @@ _Reason_: In order to understand how often new features are used, we need to be 
 | Context Element Id   | contextElementId   | ID of e.g. the episode or short this was performed on.            |
 | Context Element Type | contextElementType | type for the ID above, e.g. 'episode', 'short', 'show', etc.      |
 | Additional info      | meta               | Arbitrary extra json meta.                                        |
+
+--
+
+# Planned
+
+These have not been implemented yet.
+
+## Notification received (notification_received)
+
+Event occurs when notification is received on device.
+It doesn't occur for tvOS where notifications are open immediately or stored by operating system.
+
+### Data
+
+| Data            | Name           | Comments                         |
+| --------------- | -------------- | -------------------------------- |
+| Event ID        | eventID        | `notification_received`          |
+| Notification id | notificationId | for tracking purposes            |
+| action          | action         | `deep_link`, `clear_cache`, null |
+| deeplink        | string         | if action is `deep_link`         |
+
+## Notification opened (notification_opened)
+
+Event occurs when notification is opened by the user.
+It doesn't occur for headless notifications that execute in background without user interaction like commands.
+
+### Data
+
+| Data            | Name           | Comments              |
+| --------------- | -------------- | --------------------- |
+| Event ID        | eventID        | `notification_open`   |
+| Notification id | notificationId | for tracking purposes |
+
+## Social auth clicked (social_auth_clicked)
+
+_When_: When user clicks a social auth button
+_Reason_: Spotting issues, Usage info
+
+### Data
+
+| Data            | Name       | Comments                            |
+| --------------- | ---------- | ----------------------------------- |
+| Page Name       | pageCode   | same ID as for page/screen tracking |
+| Auth connection | connection | google, facebook, apple, bcc        |
+
+## Sign up "register" button clicked (signup_submitted)
+
+_When_: When user finishes the sign up form by clicking "register"
+_Reason_: Spotting issues, Usage info
+
+### Data
+
+| Data      | Name     | Comments                            |
+| --------- | -------- | ----------------------------------- |
+| Page Name | pageCode | same ID as for page/screen tracking |
