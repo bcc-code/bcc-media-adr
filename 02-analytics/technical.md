@@ -546,7 +546,10 @@ Collected when a game is closed for any reason.
 
 ## Interaction event (interaction)
 
-Generic interaction events, e.g. button clicks that doesnt need its own table
+_When_: On granular events that doesnt deserve their own table.
+
+_Reason_: These events are generally used for analyzing how the users use a particular feature of app, to see where we should focus our efforts.
+E.g. are any users swiping horizontally where you can't (shorts), or do any users use that "like" button, etc.
 
 ### Data
 
