@@ -49,7 +49,7 @@ platform and not on the other.
 
 ### Person analytics ID
 
-You can get this ID by sending an authenticated request to `https://API_DOMAIN/api/analitycsid`.
+You can get this ID by sending an authenticated request to `https://API_DOMAIN/api/analyticsid`.
 The returned value is an hash of the userID + a secret. This ensures that we are
 able to link all data to one user from different systems, while preventing anyone
 from being able to reverse the process or generate analytics IDs if they do not
@@ -421,6 +421,20 @@ _Reason_: In order to understand how often new features are used, we need to be 
 | Context Element Id   | contextElementId   | ID of e.g. the episode or short this was performed on.            |
 | Context Element Type | contextElementType | type for the ID above, e.g. 'episode', 'short', 'show', etc.      |
 | Additional info      | meta               | Arbitrary extra json meta.                                        |
+
+## Video played (video_played)
+
+_When_: When playing a video using our video players, and we want to attach arbitrary data to our video analytics providers events.
+
+_Reason_: We wanted to associate whatever arbitrary data we want to events sent by our video analytics provider. However, our current analytics provider has a very limited amount of slots for custom properties (2 as of writing this), and so we wanted to send associated events to our primary analytics solution, and attach extra data in those.
+
+### Data
+
+| Data            | Name        | Comments                                                                                                               |
+| --------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Video ID        | videoId     | The ID of the media item that was played                                                                               |
+| Reference ID    | referenceId | Identifier included in both this and the analytics provider events. It is used to associate the events with each other |
+| Additional data | data        | Arbitrary json data.                                                                                                   |
 
 --
 
