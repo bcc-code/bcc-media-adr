@@ -436,12 +436,6 @@ _Reason_: We wanted to associate whatever arbitrary data we want to events sent 
 | Reference ID    | referenceId | Identifier included in both this and the analytics provider events. It is used to associate the events with each other |
 | Additional data | data        | Arbitrary json data.                                                                                                   |
 
---
-
-# Planned
-
-These have not been implemented yet.
-
 ## Notification received (notification_received)
 
 Event occurs when notification is received on device.
@@ -467,6 +461,12 @@ It doesn't occur for headless notifications that execute in background without u
 | --------------- | -------------- | --------------------- |
 | Event ID        | eventID        | `notification_open`   |
 | Notification id | notificationId | for tracking purposes |
+
+--
+
+# Planned
+
+These have not been implemented yet.
 
 ## Social auth clicked (social_auth_clicked)
 
