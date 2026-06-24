@@ -436,6 +436,37 @@ _Reason_: We wanted to associate whatever arbitrary data we want to events sent 
 | Reference ID    | referenceId | Identifier included in both this and the analytics provider events. It is used to associate the events with each other |
 | Additional data | data        | Arbitrary json data.                                                                                                   |
 
+### Live / buffer / replay (BCC Connect Live)
+
+For the livestream the "video" is the channel, so `videoId` is constant and the
+attribution is in `data`:
+
+| Data           | Value                                    |
+| -------------- | ---------------------------------------- |
+| videoId        | `"livestream"` (live and buffer/replay)  |
+| data.source    | `"live"` or `"buffer"`                   |
+| data.entryId   | calendar entry id — omitted when null    |
+| data.episodeId | BCC Media episode id — omitted when null |
+
+Fired once when buffer/replay playback starts; for live, on first play and on
+each program rollover (not on gaps).
+
+## NPAW (video_analytics)
+
+NPAW (Youbora) content metadata, correlated to `video_played` via the transaction
+code.
+
+| NPAW field              | Value                                          |
+| ----------------------- | ---------------------------------------------- |
+| content.id              | BCC Media episode id                           |
+| content.saga            | calendar entry id                              |
+| content.transactionCode | same value as the `video_played` `referenceId` |
+
+For live, one NPAW view is started per program: on entry rollover the current
+view is ended and a new one started with the new `content.id`/`content.saga`
+(both absent during a gap), reusing that view's transaction code as the
+`video_played` `referenceId`.
+
 ## Notification received (notification_received)
 
 Event occurs when notification is received on device.
