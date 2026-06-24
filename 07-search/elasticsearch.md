@@ -9,34 +9,24 @@ solution, to prepare for document and article searches.
 
 This is an example of indexing options that will support different language stemmers, etc.
 
-```json5
+```json
 {
   "settings": {
     "analysis": {
       "analyzer": {
         "default-no": {
           "tokenizer": "standard",
-          "char_filter": [
-            "segment_code"
-          ],
-          "filter": [
-            "norwegian_stemmer",
-            "asciifolding"
-          ]
+          "char_filter": ["segment_code"],
+          "filter": ["norwegian_stemmer", "asciifolding"]
         },
         "default-en": {
           "tokenizer": "standard",
-          "char_filter": [
-            "segment_code"
-          ],
-          "filter": [
-            "english_stemmer",
-            "asciifolding"
-          ]
+          "char_filter": ["segment_code"],
+          "filter": ["english_stemmer", "asciifolding"]
         }
       },
       "filter": {
-        // stemmers remove endings in words, so that for example "gjerrighet" turns into "gjerrig" 
+        // stemmers remove endings in words, so that for example "gjerrighet" turns into "gjerrig"
         // in both indexes and queries
         "norwegian_stemmer": {
           "type": "stemmer",
@@ -77,14 +67,13 @@ This is an example of indexing options that will support different language stem
     }
   }
 }
-
 ```
 
 ### Document preparation
 
 We start with an export from Whisper AI which looks like this:
 
-```json5
+```json
 {
   "text": "{{complete_text}}",
   "segments": [
@@ -94,15 +83,12 @@ We start with an export from Whisper AI which looks like this:
       "start": 0.0,
       "end": 17.0,
       "text": "{{segment_text}}",
-      "tokens": [
-        0,
-        1
-      ],
+      "tokens": [0, 1],
       "temperature": 0.0,
       "avg_logprob": -0.25,
       "compression_ratio": 1.2,
       "no_speech_prob": 0.62
-    },
+    }
     //...
   ],
   "language": "{{language_code}}"
@@ -111,7 +97,7 @@ We start with an export from Whisper AI which looks like this:
 
 We ignore the complete text field and use the segments to create a highlight-friendly indexable document:
 
-```json5
+```json
 {
   "text": {
     //... {*segment_code*} {{segment_text}} ...
@@ -123,7 +109,7 @@ We ignore the complete text field and use the segments to create a highlight-fri
 
 We can then parse the highlight response:
 
-```json5
+```json
 // result from a query with "gjerrighet", query documented below
 {
   "_index": "{{index_id}}",
@@ -148,7 +134,7 @@ should be sent when clicking it.
 
 ### Cross-language search
 
-```json5
+```json
 {
   "_source": false,
   // avoid using more network bandwidth than necessary
@@ -160,10 +146,7 @@ should be sent when clicking it.
             "query": "{{query}}",
             "boost": 3,
             // boost this with a higher factor to prioritize exact matches
-            "fields": [
-              "text.no",
-              "text.en"
-            ]
+            "fields": ["text.no", "text.en"]
           }
         },
         {
@@ -172,10 +155,7 @@ should be sent when clicking it.
             "fuzziness": "AUTO",
             "boost": 2,
             // boosts this with a lower factor to prioritize matches
-            "fields": [
-              "text.no",
-              "text.en"
-            ]
+            "fields": ["text.no", "text.en"]
           }
         }
       ]
@@ -213,4 +193,3 @@ Based on some minor tests, we likely won't be needing a beast of a cluster to se
 with 3 nodes with 1 GB of RAM will most likely be sufficient, at least for now. Scaling up shouldn't be an issue either.
 As stated above, data integrity is not a priority, so if something fails, we shouldn't need to hesitate to just rebuild
 the cluster from scratch.
-

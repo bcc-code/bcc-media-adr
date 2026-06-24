@@ -1,7 +1,9 @@
 # 4. Primary backend language
+
 Date: 1.10.2021
 
 ## Status
+
 Accepted
 
 Note: This document is not a hard rule but a record of a decision, for a particular project.
@@ -18,10 +20,10 @@ in more or less detail.
 
 Some of the main requirements for the language to be considered in detail are:
 
-* Strongly statically typed, at compile and run time
-* Should be accepted in the industry for the task (web backend/api)
-* Should be something that "does not scare away contributors"
-* Should be suitable for "cloud native" deployment (via Google Cloud Run at the time of writing)
+- Strongly statically typed, at compile and run time
+- Should be accepted in the industry for the task (web backend/api)
+- Should be something that "does not scare away contributors"
+- Should be suitable for "cloud native" deployment (via Google Cloud Run at the time of writing)
 
 ## Evaluation
 
@@ -29,28 +31,28 @@ Some of the main requirements for the language to be considered in detail are:
 
 The main requirements quickly disqualified some candidates that came up in discussions:
 
-* Node.JS
-	* Typescript does not offer run time safety (As far as we were able to tell)
-* Python
-	* Type hinting is not sufficient
-* Erlang/Elixir/Phoenix
-	* Not static types (potentially less of an issue here)
-	* Not super widely used
-	* Some more notes later
-* Haskell
-	* Not something I would consider industry standard in this area
-	* Could be very daunting for a unexperienced dev
-	* Potentially hard to find programmers
-* Nim
-	* Promising, but not "big" enough to consider for a non-hobby project
-	* Not really a "standard" for anything
+- Node.JS
+  - Typescript does not offer run time safety (As far as we were able to tell)
+- Python
+  - Type hinting is not sufficient
+- Erlang/Elixir/Phoenix
+  - Not static types (potentially less of an issue here)
+  - Not super widely used
+  - Some more notes later
+- Haskell
+  - Not something I would consider industry standard in this area
+  - Could be very daunting for a unexperienced dev
+  - Potentially hard to find programmers
+- Nim
+  - Promising, but not "big" enough to consider for a non-hobby project
+  - Not really a "standard" for anything
 
 The main contenders evaluated more closely:
 
-* Java
-* C# (.NET core)
-* Go
-* BEAM (Erlang/Elixir)
+- Java
+- C# (.NET core)
+- Go
+- BEAM (Erlang/Elixir)
 
 ### BEAM
 
@@ -122,10 +124,10 @@ After long verbal discussions about the benefits and drawback of each language,
 we decided to conduct a test: Implement a simple GQL API with a Postgres DB backend
 in both languages and then evaluate the following points:
 
-* Performance
-* Memory usage
-* Ease of understanding/Level of Magic involved
-* Team opinion
+- Performance
+- Memory usage
+- Ease of understanding/Level of Magic involved
+- Team opinion
 
 ### Performance
 

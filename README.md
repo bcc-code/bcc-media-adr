@@ -13,4 +13,3 @@ More about it [here](https://cognitect.com/blog/2011/11/15/documenting-architect
 ### Tools
 
 There is a large list of tools that can be used to manage ADRs [here](https://adr.github.io/#tooling), recommended is [ADR Go](https://github.com/marouni/adr)
-

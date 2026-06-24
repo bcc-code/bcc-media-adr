@@ -26,10 +26,10 @@ All future data collection (as far as technically possible) should happen via th
 
 ### Related decisions
 
-* Rudderstack is the primary place for suppressing user analytics data collection
-* The hosted K8s cluster should not be used for custom applications, and is not 
+- Rudderstack is the primary place for suppressing user analytics data collection
+- The hosted K8s cluster should not be used for custom applications, and is not
   available for general use outside of the stated mission.
-  
+
 ### Related document
 
 More documents related to this can be found in the `02-analytics` folder.
@@ -37,6 +37,5 @@ The documents contained therein are partially living documents and may change ov
 
 ## Consequences
 
-* Better and more consistent analytics
-* Better control of user data
-
+- Better and more consistent analytics
+- Better control of user data

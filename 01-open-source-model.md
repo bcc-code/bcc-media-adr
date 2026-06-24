@@ -30,15 +30,14 @@ The decision whether to accept a proposed modification is with the main develope
 
 ### Related decisions
 
-* The language used in the projects as well as in the documentation is English.
-* Projects should define coding guidelines \(and preferably provide a `.editorconfig` file\) so the project is formatted in a consistent manner, as to be more accessible to new contributors
-  * This document does not prescribe what the guidelines should be, but they should preferably reflect what the larger community does
+- The language used in the projects as well as in the documentation is English.
+- Projects should define coding guidelines \(and preferably provide a `.editorconfig` file\) so the project is formatted in a consistent manner, as to be more accessible to new contributors
+  - This document does not prescribe what the guidelines should be, but they should preferably reflect what the larger community does
 
 ## Consequences
 
 The consequences are two fold:
 
-* All future projects should be developed immediately in the open, or at least with the mindset that they will be open-sourced ASAP
-* Current projects need to be cleaned up and improved to the point that we can release them into the public
-* All projects must store secret data out-of-band \(i.e. not in the repository\)
-
+- All future projects should be developed immediately in the open, or at least with the mindset that they will be open-sourced ASAP
+- Current projects need to be cleaned up and improved to the point that we can release them into the public
+- All projects must store secret data out-of-band \(i.e. not in the repository\)
